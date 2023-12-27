@@ -1,0 +1,17 @@
+.footer {
+   padding: 120px 0;
+   &__logoBody {
+   }
+   &__logoImgBody {
+      position: relative;
+      width: 130px;
+      height: 30px;
+   }
+   &__subtitle {
+      margin: 26px 0 0 0;
+      color: #828282;
+      font-weight: 700;
+      text-transform: uppercase;
+      max-width: 211px;
+   }
+}
