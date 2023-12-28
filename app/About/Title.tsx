@@ -9,8 +9,8 @@ function Title() {
             <Image src={head} alt="Welkin" fill />
          </div>
          <div className={styles.about__titleBody}>
-            <h2>О компании</h2>
-            <p>
+            <h2 className={styles.about__title}>О компании</h2>
+            <p className={styles.about__subtitle}>
                Welkin Company – Ваш надежный партнёр в сфере бытовой техники в Узбекистане! Наша компания была основана
                на принципах качества, надежности и профессионализма, и с тех пор мы стремимся делать повседневную жизнь
                наших клиентов более комфортной и эффективной. С Welkin ваш дом становится местом, где качество, комфорт

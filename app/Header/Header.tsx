@@ -9,18 +9,22 @@ const list = [
       id: 0,
       name: "Каталог",
       icon: arrow,
+      href: null,
    },
    {
       id: 1,
       name: "О компании",
+      href: "/About",
    },
    {
       id: 2,
       name: "Вопрос-ответ",
+      href: "/faq",
    },
    {
       id: 3,
       name: "Контакты",
+      href: "/Contacts",
    },
 ];
 
@@ -43,7 +47,7 @@ function Header() {
                   } else
                      return (
                         <li key={el.id} className={styles.header__item}>
-                           <Link className={styles.header__itemLink} href={"/About"}>
+                           <Link className={styles.header__itemLink} href={el.href === null ? "/" : el.href}>
                               {el.name}
                            </Link>
                         </li>
