@@ -43,7 +43,7 @@ function Header() {
                   } else
                      return (
                         <li key={el.id} className={styles.header__item}>
-                           <Link className={styles.header__itemLink} href={"/"}>
+                           <Link className={styles.header__itemLink} href={"/About"}>
                               {el.name}
                            </Link>
                         </li>

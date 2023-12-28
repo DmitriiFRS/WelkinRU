@@ -1,0 +1,15 @@
+.about {
+   margin: 80px 0 0 0;
+   &__container {
+      max-width: 900px;
+   }
+   &__main {
+      display: flex;
+      justify-content: space-between;
+   }
+   &__imgBody {
+      position: relative;
+      max-width: 261px;
+      aspect-ratio: 261/373;
+   }
+}

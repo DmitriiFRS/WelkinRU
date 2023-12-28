@@ -4,6 +4,7 @@ import pwr from "../../../public/img/homepage/pwr.jpg";
 import rooftop from "../../../public/img/homepage/rooftop.jpg";
 import vrf from "../../../public/img/homepage/vrf.jpg";
 import chiller from "../../../public/img/homepage/chiller.jpg";
+import Link from "next/link";
 
 const equip = [
    {
@@ -46,7 +47,9 @@ function Equip() {
          <div className="container">
             <div className={styles.equip__titleBody}>
                <h2 className={styles.equip__title}>Наше оборудование</h2>
-               <button className={styles.equip__catalog}>весь каталог</button>
+               <Link href="/Catalog">
+                  <button className={styles.equip__catalog}>весь каталог</button>
+               </Link>
             </div>
             <div className={styles.equip__itemsBody}>
                <div className={styles.equip__col1}>
