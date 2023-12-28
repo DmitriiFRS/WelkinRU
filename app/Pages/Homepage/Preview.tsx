@@ -13,7 +13,9 @@ function Preview() {
                   Надежное и эффективное оборудование для кондиционирования воздуха от Welkin - это ключ к созданию
                   комфортной и здоровой атмосферы в любом помещении.
                </p>
-               <button className={styles.preview__btn}>перейти в каталог</button>
+               <button className={`${styles.preview__btn} btnBlack`}>
+                  <span>перейти в каталог</span>
+               </button>
             </div>
             <div className={styles.preview__imagesBody}>
                <div className={`${styles.preview__imgBody} ${styles.preview__img1}`}>

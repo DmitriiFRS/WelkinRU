@@ -21,19 +21,14 @@ const list = [
       name: "Вопрос-ответ",
       href: "/faq",
    },
-   {
-      id: 3,
-      name: "Контакты",
-      href: "/Contacts",
-   },
 ];
 
 function Header() {
    return (
       <div className={`container ${styles.header}`}>
-         <div className={styles.header__logo}>
+         <Link className={styles.header__logo} href={"/"}>
             <Image src={logo} alt="welkin" fill />
-         </div>
+         </Link>
          <nav className={styles.header__nav}>
             <ul className={styles.header__list}>
                {list.map((el) => {

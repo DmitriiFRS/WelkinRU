@@ -9,8 +9,8 @@ function Faq() {
          <div className="container">
             <Breadcrumbs />
             <Questions />
-            <ContactUs />
          </div>
+         <ContactUs />
       </div>
    );
 }

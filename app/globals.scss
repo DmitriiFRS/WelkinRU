@@ -93,3 +93,67 @@ h6 {
 .main {
    flex: 1 1 auto;
 }
+.btnYellow {
+   padding: 17.5px 40px;
+   border-radius: 30px;
+   background: #fec300;
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #fff;
+   max-width: 191px;
+   width: 100%;
+   position: relative;
+   overflow: hidden;
+   transition: 0.3s;
+   &::before {
+      content: "";
+      position: absolute;
+      left: -10%;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      background: #000;
+      transition: 0.3s;
+      transform: skew(45deg);
+      z-index: 1;
+   }
+   &:hover::before {
+      width: 120%;
+   }
+   & > span {
+      position: relative;
+      z-index: 2;
+   }
+}
+.btnBlack {
+   padding: 17.5px 40px;
+   border-radius: 30px;
+   background: #000;
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #fff;
+   max-width: 191px;
+   width: 100%;
+   position: relative;
+   overflow: hidden;
+   transition: 0.3s;
+   &::before {
+      content: "";
+      position: absolute;
+      left: -10%;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      background: #fec300;
+      transition: 0.3s;
+      transform: skew(45deg);
+      z-index: 1;
+   }
+   &:hover::before {
+      width: 120%;
+   }
+   & > span {
+      position: relative;
+      z-index: 2;
+   }
+}

@@ -11,8 +11,8 @@ function page() {
             <Breadcrumbs />
             <Title />
             <Cols />
-            <ContactUs />
          </div>
+         <ContactUs />
       </div>
    );
 }

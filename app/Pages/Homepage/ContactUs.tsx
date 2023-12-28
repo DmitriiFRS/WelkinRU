@@ -15,7 +15,9 @@ function ContactUs() {
                <input className={styles.contactUs__input} placeholder="ваше имя" type="text" />
                <input className={styles.contactUs__input} placeholder="ваш телефон" type="tel" />
                <textarea name="textarea" placeholder="ваш вопрос" className={styles.contactUs__inputArea}></textarea>
-               <button className={styles.contactUs__btn}>Отправить</button>
+               <button className={`${styles.contactUs__btn} btnBlack`}>
+                  <span>Отправить</span>
+               </button>
             </div>
          </div>
       </div>
