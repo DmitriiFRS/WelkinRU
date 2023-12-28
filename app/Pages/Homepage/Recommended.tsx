@@ -48,7 +48,9 @@ function Recommended() {
                         </div>
                         <p className={styles.recommended__model}>{el.name}</p>
                         <p className={styles.recommended__type}>{el.category}</p>
-                        <button className={styles.recommended__btn}>Узнать цену</button>
+                        <button className={styles.recommended__btn}>
+                           <span>Узнать цену</span>
+                        </button>
                      </li>
                   );
                })}

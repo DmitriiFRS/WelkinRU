@@ -244,6 +244,28 @@
       color: #fff;
       max-width: 191px;
       width: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+      &::before {
+         content: "";
+         position: absolute;
+         left: -10%;
+         top: 0;
+         width: 0%;
+         height: 100%;
+         background: #000;
+         transition: 0.3s;
+         transform: skew(45deg);
+         z-index: 1;
+      }
+      &:hover::before {
+         width: 120%;
+      }
+      & > span {
+         position: relative;
+         z-index: 2;
+      }
    }
 }
 .about {
