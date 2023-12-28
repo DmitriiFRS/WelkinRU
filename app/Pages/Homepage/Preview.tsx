@@ -1,6 +1,5 @@
 import styles from "./homepage.module.scss";
-import preview1 from "../../../public/img/homepage/preview1.jpg";
-import preview2 from "../../../public/img/homepage/preview2.jpg";
+import preview3 from "../../../public/img/homepage/preview3.png";
 import Image from "next/image";
 
 function Preview() {
@@ -18,11 +17,8 @@ function Preview() {
                </button>
             </div>
             <div className={styles.preview__imagesBody}>
-               <div className={`${styles.preview__imgBody} ${styles.preview__img1}`}>
-                  <Image src={preview1} alt="vrf-v6" fill />
-               </div>
-               <div className={`${styles.preview__imgBody} ${styles.preview__img2}`}>
-                  <Image src={preview2} alt="chiller" fill />
+               <div className={styles.preview__imgBody}>
+                  <Image src={preview3} alt="vrf-v6" fill quality={100} />
                </div>
             </div>
          </div>

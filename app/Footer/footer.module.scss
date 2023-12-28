@@ -11,10 +11,11 @@
    }
    &__subtitle {
       margin: 26px 0 0 0;
-      color: #828282;
+      color: #fec300;
       font-weight: 700;
       text-transform: uppercase;
       max-width: 211px;
+      text-decoration: underline;
    }
    &__cols {
       display: flex;

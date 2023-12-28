@@ -1,15 +1,20 @@
 import styles from "./footer.module.scss";
 import Image from "next/image";
 import logo from "../../public/svg/logo.svg";
+import Link from "next/link";
 
 function Footer() {
    return (
       <div className={`container ${styles.footer}`}>
          <div className={styles.footer__logoBody}>
-            <div className={styles.footer__logoImgBody}>
-               <Image src={logo} alt="welkin" fill />
-            </div>
-            <p className={styles.footer__subtitle}>политика конфиденциальности</p>
+            <Link href={"/"}>
+               <div className={styles.footer__logoImgBody}>
+                  <Image src={logo} alt="welkin" fill />
+               </div>
+            </Link>
+            <Link href={"/privacy-policy"}>
+               <div className={styles.footer__subtitle}>политика конфиденциальности</div>
+            </Link>
          </div>
          <div className={styles.footer__cols}>
             <div className={styles.footer__cols__item}>

@@ -1,12 +1,15 @@
 .header {
    display: flex;
    justify-content: space-between;
-   padding: 20px 0;
    align-items: center;
+   height: 105px;
    &__logo {
       position: relative;
       width: 130px;
       height: 30px;
+   }
+   &__nav {
+      height: 100%;
    }
    &__list {
       display: flex;

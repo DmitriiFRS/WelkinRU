@@ -45,15 +45,9 @@
    }
    &__imgBody {
       position: relative;
-   }
-   &__img1 {
-      width: 273px;
-      height: 358px;
-      transform: translateX(82px);
-   }
-   &__img2 {
-      height: 457px;
-      width: 482px;
+      max-width: 673px;
+      width: 100%;
+      aspect-ratio: 673/398;
    }
 }
 .equip {
@@ -106,6 +100,11 @@
       height: 100%;
       border-radius: 40px;
       padding: 40px 0 0 30px;
+      cursor: pointer;
+      overflow: hidden;
+      &:hover .equip__pwrImg {
+         scale: 1.1;
+      }
    }
    &__rooftopBody {
       background: #fdf5dc;
@@ -114,6 +113,11 @@
       border-radius: 40px;
       align-items: center;
       padding: 0 35px 0 30px;
+      cursor: pointer;
+      overflow: hidden;
+      &:hover .equip__rooftopImg {
+         scale: 1.1;
+      }
    }
    &__vrfBody {
       background: #baedf3;
@@ -123,6 +127,11 @@
       width: 100%;
       border-radius: 40px;
       padding: 40px 0 0 30px;
+      cursor: pointer;
+      overflow: hidden;
+      &:hover .equip__vrfImg {
+         scale: 1.1;
+      }
    }
    &__chillerBody {
       background: #ebecec;
@@ -132,6 +141,11 @@
       display: flex;
       flex-direction: row-reverse;
       gap: 25px;
+      cursor: pointer;
+      overflow: hidden;
+      &:hover .equip__chillerImg {
+         scale: 1.1;
+      }
       & > :first-child {
          justify-content: center;
          max-width: 180px;
@@ -141,6 +155,8 @@
       display: flex;
       flex-direction: column;
       flex: 1 1 auto;
+      position: relative;
+      z-index: 2;
    }
    &__itemTitle {
       font-size: 24px;
@@ -168,6 +184,7 @@
       width: 351px;
       height: 313px;
       transform: translateX(30px);
+      transition: 0.3s;
    }
    &__rooftopImgBody {
       height: 100%;
@@ -178,6 +195,7 @@
       position: relative;
       width: 462px;
       aspect-ratio: 462/195;
+      transition: 0.3s;
    }
    &__vrfImgBody {
       width: 100%;
@@ -188,6 +206,7 @@
       position: relative;
       width: 166px;
       aspect-ratio: 166/136;
+      transition: 0.3s;
    }
    &__chillerImgBody {
       display: flex;
@@ -199,6 +218,7 @@
       aspect-ratio: 252/204;
       max-height: 204px;
       margin: 0 0 0 23px;
+      transition: 0.3s;
    }
 }
 .recommended {
@@ -222,11 +242,17 @@
       background: #ebecec;
       padding: 40px;
       border-radius: 40px;
+      overflow: hidden;
+      cursor: pointer;
+      &:hover .recommended__imgBody {
+         scale: 1.1;
+      }
    }
    &__imgBody {
       position: relative;
       max-width: 220px;
       aspect-ratio: 1/1;
+      transition: 0.3s;
    }
    &__model {
       font-size: 24px;
