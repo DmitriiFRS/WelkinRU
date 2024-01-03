@@ -1,6 +1,5 @@
 import styles from "./faq.module.scss";
-import arrow from "../../public/img/faq/arrow.svg";
-import Image from "next/image";
+import Cols from "./Cols";
 
 const cols = [
    {
@@ -39,18 +38,7 @@ function Questions() {
    return (
       <section className={styles.faq__questions}>
          <h2 className={styles.faq__title}>Часто задаваемые вопросы</h2>
-         <ul className={styles.faq__cols}>
-            {cols.map((el) => {
-               return (
-                  <li key={el.id} className={styles.faq__item}>
-                     <div className={styles.faq__itemTitle}>{el.title}</div>
-                     <div className={styles.faq__iconBody}>
-                        <Image src={arrow} alt="arrow" fill />
-                     </div>
-                  </li>
-               );
-            })}
-         </ul>
+         <Cols cols={cols} />
       </section>
    );
 }
