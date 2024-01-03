@@ -3,6 +3,8 @@ import Image from "next/image";
 import logo from "../../public/svg/logo.svg";
 import arrow from "../../public/svg/arrow.svg";
 import Link from "next/link";
+import CatalogMenu from "./CatalogMenu";
+import Dropdown from "./Dropdown";
 
 const list = [
    {
@@ -30,15 +32,11 @@ function Header() {
             <Image src={logo} alt="welkin" fill />
          </Link>
          <nav className={styles.header__nav}>
+            <Dropdown />
             <ul className={styles.header__list}>
                {list.map((el) => {
                   if (el.icon) {
-                     return (
-                        <li key={el.id} className={styles.header__item}>
-                           <span>{el.name}</span>
-                           <Image className={styles.header__arrow} src={el.icon} alt="icon" width={12} height={6} />
-                        </li>
-                     );
+                     return <CatalogMenu key={el.id} el={el} />;
                   } else
                      return (
                         <li key={el.id} className={styles.header__item}>

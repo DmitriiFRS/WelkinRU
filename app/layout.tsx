@@ -53,17 +53,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="ru">
          <body className={circle.className}>
             <div className="wrapper">
-               <header className="header">
-                  <Header />
-               </header>
+               <ReduxProvider>
+                  <header className="header">
+                     <Header />
+                  </header>
 
-               <main className="main">
-                  <ReduxProvider>{children}</ReduxProvider>
-               </main>
+                  <main className="main">{children}</main>
 
-               <footer className="footer">
-                  <Footer />
-               </footer>
+                  <footer className="footer">
+                     <Footer />
+                  </footer>
+               </ReduxProvider>
             </div>
          </body>
       </html>
