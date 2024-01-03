@@ -12,7 +12,7 @@ function Footer() {
                   <Image src={logo} alt="welkin" fill />
                </div>
             </Link>
-            <Link href={"/privacy-policy"}>
+            <Link href={"/Privacy-policy"}>
                <div className={styles.footer__subtitle}>политика конфиденциальности</div>
             </Link>
          </div>
