@@ -9,7 +9,7 @@
    &__cols {
       margin: 60px 0 0 0;
       display: grid;
-      gap: 30px;
+      gap: 90px 40px;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(3, 1fr);
    }
@@ -39,11 +39,16 @@
    }
    &__itemTitle {
       font-weight: 700;
+      line-height: 140%;
    }
    &__iconBody {
       position: relative;
       width: 20px;
       height: 10px;
+      transition: 0.3s;
+      &__active {
+         transform: rotate(180deg);
+      }
    }
    &__answer {
       position: absolute;
@@ -60,13 +65,14 @@
       transition: 0.7s;
       opacity: 0;
       &__active {
-         padding: 80px 20px 40px 20px;
+         padding: 100px 20px 60px 20px;
          height: 100%;
          z-index: 1;
-         margin: 10px 0 0 0;
          opacity: 1;
       }
       &__title {
+         font-weight: 300;
+         line-height: 140%;
          &__active {
             animation-name: fade-in;
             animation-duration: 0.7s;

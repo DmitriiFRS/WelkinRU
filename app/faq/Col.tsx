@@ -17,7 +17,7 @@ function Col({ cols, el }: { cols: ColsProps; el: any }) {
       <li key={el.id} className={styles.faq__item} onClick={() => setActive(!isActive)}>
          <div className={styles.faq__itemBody}>
             <div className={styles.faq__itemTitle}>{el.title}</div>
-            <div className={styles.faq__iconBody}>
+            <div className={`${styles.faq__iconBody} ${isActive ? styles.faq__iconBody__active : ""}`}>
                <Image src={arrow} alt="arrow" fill />
             </div>
          </div>
