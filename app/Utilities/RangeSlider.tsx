@@ -6,21 +6,26 @@ import Slider from "react-slider";
 
 function RangeSlider({ min, max, minDistance }: { min: number; max: number; minDistance: number }) {
    const [values, setValues] = useState([min, max]);
-   function setNewValue(e: any, idx: number) {
+   function setFirstValue(e: any) {
       const currentValue = e.target.value;
-      if (currentValue < min) return;
-      setValues([currentValue, values[idx]]);
+      if (currentValue > max - min) return;
+      setValues([currentValue, values[1]]);
+   }
+   function setSecondValue(e: any) {
+      const currentValue = e.target.value;
+      if (currentValue > max) return;
+      setValues([values[0], currentValue]);
    }
    return (
       <div className={styles.range}>
          <div className={styles.range__inputs}>
+            <input type="number" className={styles.range__input} value={values[0]} onChange={(e) => setFirstValue(e)} />
             <input
                type="number"
                className={styles.range__input}
-               value={values[0]}
-               onChange={(e) => setNewValue(e, 1)}
+               value={values[1]}
+               onChange={(e) => setSecondValue(e)}
             />
-            <input type="number" className={styles.range__input} value={values[1]} />
          </div>
          <div className={styles.range__sliderBody}>
             <Slider
@@ -33,8 +38,8 @@ function RangeSlider({ min, max, minDistance }: { min: number; max: number; minD
             />
          </div>
          <div className={styles.range__minmaxBody}>
-            <span className={styles.range__minmax}>{values[0]}</span>
-            <span className={styles.range__minmax}>{values[1]}</span>
+            <span className={styles.range__minmax}>{min}</span>
+            <span className={styles.range__minmax}>{max}</span>
          </div>
       </div>
    );
