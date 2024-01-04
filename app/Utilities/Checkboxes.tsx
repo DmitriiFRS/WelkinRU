@@ -1,4 +1,17 @@
-function Checkboxes() {
-   return <div>fd</div>;
+import styles from "./utilities.module.scss";
+
+function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
+   return (
+      <div className={styles.checkbox}>
+         {checkbox.map((el, index) => {
+            return (
+               <label key={index} htmlFor={(id + 1).toString()} className={styles.checkbox__item}>
+                  <input type="checkbox" id={(id + 1).toString()} className={styles.checkbox__checkbox} />
+                  <span className={styles.checkbox__name}>{el}</span>
+               </label>
+            );
+         })}
+      </div>
+   );
 }
 export default Checkboxes;

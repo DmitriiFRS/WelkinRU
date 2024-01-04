@@ -1,11 +1,9 @@
 import styles from "./catalog.module.scss";
 import filterIcon from "../../public/img/catalog/filterIcon.png";
 import Image from "next/image";
-import arrow from "../../public/svg/arrow.svg";
-import RangeSlider from "../Utilities/RangeSlider";
-import Checkboxes from "../Utilities/Checkboxes";
+import DropdownMenu from "./DropdownMenu";
 
-type ButtonsInnerType = {
+export type ButtonsInnerType = {
    id: number;
    title: string;
    rangeSlider?: {
@@ -34,7 +32,7 @@ const buttons: ButtonsType = [
       checkbox: ["1", "2", "3", "4"],
    },
    {
-      id: 2,
+      id: 100,
       title: "Площадь, кв.м",
       rangeSlider: {
          min: 10,
@@ -43,12 +41,12 @@ const buttons: ButtonsType = [
       },
    },
    {
-      id: 3,
+      id: 1000,
       title: "Тип фанкойла",
       checkbox: ["1", "2", "3"],
    },
    {
-      id: 4,
+      id: 10000,
       title: "Система",
       checkbox: ["1", "2"],
    },
@@ -61,25 +59,14 @@ function Filter() {
             <span className={styles.filter__sortText}>Фильтр</span>
          </div>
          <div className={styles.filter__sortBody}>
-            {buttons.map((el) => {
-               return (
-                  <div key={el.id} className={styles.filter__itemBody}>
-                     <button className={styles.filter__item}>
-                        <div>{el.title}</div>
-                        <Image src={arrow} alt="arrow" />
-                     </button>
-                     {el.rangeSlider ? (
-                        <RangeSlider
-                           min={el.rangeSlider.min}
-                           max={el.rangeSlider.max}
-                           minDistance={el.rangeSlider.minDistance}
-                        />
-                     ) : (
-                        <Checkboxes />
-                     )}
-                  </div>
-               );
+            {buttons.map((el, index) => {
+               return <DropdownMenu key={index} el={el} />;
             })}
+         </div>
+         <div className={styles.filter__acceptBody}>
+            <button className={`${styles.filter__accept} btnBlack`}>
+               <span>Применить</span>
+            </button>
          </div>
       </section>
    );
