@@ -17,7 +17,11 @@ function DropdownMenu({ el }: { el: ButtonsInnerType }) {
       <div key={el.id} className={styles.filter__itemBody}>
          <button className={styles.filter__item} onClick={toggleSubmenu}>
             <div>{el.title}</div>
-            <Image src={arrow} alt="arrow" />
+            <Image
+               className={`${styles.filter__arrowIcon} ${isActive ? styles.filter__arrowIcon__active : ""}`}
+               src={arrow}
+               alt="arrow"
+            />
          </button>
          <div className={`${styles.filter__itemInner} ${isActive ? styles.filter__itemInner__active : ""}`}>
             {el.rangeSlider ? (

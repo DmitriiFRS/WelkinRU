@@ -2,6 +2,8 @@ import styles from "./catalog.module.scss";
 import Image from "next/image";
 import sortIcon from "../../public/img/catalog/sortIcon.png";
 import example from "../../public/img/catalog/example.png";
+import SortDropdown from "./SortDropdown";
+import SortBlock from "./SortBlock";
 
 const items = [
    {
@@ -33,10 +35,7 @@ const items = [
 function Cards() {
    return (
       <section className={styles.cards}>
-         <button className={styles.cards__sortBtn}>
-            <Image src={sortIcon} alt="sort" />
-            <span className={styles.cards__sortText}>Сортировка</span>
-         </button>
+         <SortBlock />
          <ul className={styles.cards__body}>
             {items.map((el) => {
                return (
