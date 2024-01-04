@@ -2,6 +2,8 @@ import styles from "./catalog.module.scss";
 import filterIcon from "../../public/img/catalog/filterIcon.png";
 import Image from "next/image";
 import arrow from "../../public/svg/arrow.svg";
+import RangeSlider from "../Utilities/RangeSlider";
+import Checkboxes from "../Utilities/Checkboxes";
 
 type ButtonsInnerType = {
    id: number;
@@ -9,6 +11,7 @@ type ButtonsInnerType = {
    rangeSlider?: {
       min: number;
       max: number;
+      minDistance: number;
    };
    checkbox?: Array<string>;
 };
@@ -22,6 +25,7 @@ const buttons: ButtonsType = [
       rangeSlider: {
          min: 1000,
          max: 9999,
+         minDistance: 1000,
       },
    },
    {
@@ -35,6 +39,7 @@ const buttons: ButtonsType = [
       rangeSlider: {
          min: 10,
          max: 1000,
+         minDistance: 100,
       },
    },
    {
@@ -63,6 +68,15 @@ function Filter() {
                         <div>{el.title}</div>
                         <Image src={arrow} alt="arrow" />
                      </button>
+                     {el.rangeSlider ? (
+                        <RangeSlider
+                           min={el.rangeSlider.min}
+                           max={el.rangeSlider.max}
+                           minDistance={el.rangeSlider.minDistance}
+                        />
+                     ) : (
+                        <Checkboxes />
+                     )}
                   </div>
                );
             })}
