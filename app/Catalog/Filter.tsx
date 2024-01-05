@@ -29,7 +29,7 @@ const buttons: ButtonsType = [
    {
       id: 1,
       title: "Серия",
-      checkbox: ["1", "2", "3", "4"],
+      checkbox: [" H30/5R1B", "2", "3", "4"],
    },
    {
       id: 100,
@@ -43,7 +43,7 @@ const buttons: ButtonsType = [
    {
       id: 1000,
       title: "Тип фанкойла",
-      checkbox: ["1", "2", "3"],
+      checkbox: [" H30/5R1B", "2", "3"],
    },
    {
       id: 10000,

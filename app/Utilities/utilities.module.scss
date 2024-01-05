@@ -49,6 +49,7 @@
       display: inline-flex;
       align-items: center;
       text-align: center;
+      cursor: pointer;
       &:not(:last-child) {
          margin: 0 0 6px 0;
       }

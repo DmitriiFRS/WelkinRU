@@ -8,6 +8,7 @@
       display: grid;
       grid-template-columns: 76% 24%;
       gap: 30px;
+      position: relative;
    }
 }
 
@@ -142,6 +143,36 @@
       transition: 0.3s;
       &__active {
          transform: rotate(180deg);
+      }
+   }
+}
+
+.pagination {
+   position: absolute;
+   left: 0;
+   bottom: -60px;
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      & button {
+         background: transparent;
+         color: #bdbdbd;
+         height: 100%;
+         width: 100%;
+      }
+      &__active {
+         background: #fec300;
+         & button {
+            color: #fff;
+         }
       }
    }
 }
