@@ -37,6 +37,18 @@
          background: #ebecec;
          border-radius: 40px;
          padding: 40px 20px;
+         height: 300px;
+         width: 300px;
+         cursor: pointer;
+         &:hover .cards__item__imgBody {
+            transform: scale(1.1);
+         }
+      }
+      &__imgBody {
+         position: relative;
+         height: 100%;
+         width: 100%;
+         transition: 0.2s;
       }
       &__title {
          font-size: 24px;

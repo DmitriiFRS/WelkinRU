@@ -16,7 +16,7 @@ function ContentInner({ items }: { items: Array<ContentInnerProps> }) {
                <li key={el.id} className={styles.cards__item}>
                   <div className={styles.cards__item__imgBlock}>
                      <div className={styles.cards__item__imgBody}>
-                        <Image src={el.img} alt="welkin" />
+                        <Image src={el.img} alt="welkin" fill />
                      </div>
                   </div>
                   <div className={styles.cards__item__titleBlock}>

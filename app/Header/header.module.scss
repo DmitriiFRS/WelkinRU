@@ -8,6 +8,10 @@
       position: relative;
       width: 130px;
       height: 30px;
+      @media (max-width: 820px) {
+         width: 87px;
+         height: 20px;
+      }
    }
    &__nav {
       height: 100%;
@@ -26,6 +30,9 @@
       z-index: 5;
       &:not(:last-child) {
          margin: 0 30px 0 0;
+         @media (max-width: 820px) {
+            margin: 0 15px 0 0;
+         }
       }
       font-weight: 700;
       text-transform: uppercase;
@@ -34,9 +41,15 @@
       padding: 20px 0;
       display: flex;
       align-items: center;
+      @media (max-width: 820px) {
+         font-size: 14px;
+      }
    }
    &__arrow {
       margin: 0 0 0 10px;
+      @media (max-width: 820px) {
+         margin: 0 0 0 5px;
+      }
    }
    &__itemLink {
       color: inherit;
@@ -53,6 +66,10 @@
       border: 2px solid#000;
       background: transparent;
       transition: 0.3s;
+      @media (max-width: 820px) {
+         max-width: 150px;
+         height: 45px;
+      }
       &:hover {
          color: #fff;
          background: #000;
