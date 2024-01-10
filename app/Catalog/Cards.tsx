@@ -69,7 +69,6 @@ const items = [
 function Cards() {
    return (
       <section className={styles.cards}>
-         <SortBlock />
          <Content items={items} />
       </section>
    );
