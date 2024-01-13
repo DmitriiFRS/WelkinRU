@@ -5,6 +5,7 @@ import arrow from "../../public/svg/arrow.svg";
 import Link from "next/link";
 import CatalogMenu from "./CatalogMenu";
 import Dropdown from "./Dropdown";
+import { fetchGraphqlData } from "../Utilities/FetchData";
 
 const list = [
    {
@@ -24,8 +25,18 @@ const list = [
       href: "/faq",
    },
 ];
-
-function Header() {
+async function Header() {
+   const data = await fetchGraphqlData(`
+   query {
+      phone {
+        data {
+          attributes {
+            header
+          }
+        }
+      }
+    }
+   `);
    return (
       <div className={`container ${styles.header}`}>
          <Link className={styles.header__logo} href={"/"}>
@@ -49,7 +60,7 @@ function Header() {
             </ul>
          </nav>
          <button className={styles.header__tel}>
-            <span>+998 97 333 63 57</span>
+            <span>{data.data.phone.data.attributes.header}</span>
          </button>
       </div>
    );

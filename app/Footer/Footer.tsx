@@ -2,8 +2,20 @@ import styles from "./footer.module.scss";
 import Image from "next/image";
 import logo from "../../public/svg/logo.svg";
 import Link from "next/link";
+import { fetchGraphqlData } from "../Utilities/FetchData";
 
-function Footer() {
+async function Footer() {
+   const data = await fetchGraphqlData(`
+   query {
+      phone {
+        data {
+          attributes {
+            footer
+          }
+        }
+      }
+    }
+   `);
    return (
       <div className={`container ${styles.footer}`}>
          <div className={styles.footer__logoBody}>
@@ -28,7 +40,7 @@ function Footer() {
             <div className={styles.footer__cols__item}>
                <h3>Контакты</h3>
                <ul className={styles.footer__cols__list}>
-                  <li className={styles.footer__cols__item}>+998 192 93 93</li>
+                  <li className={styles.footer__cols__item}>{data.data.phone.data.attributes.footer}</li>
                   <li className={`${styles.footer__cols__item} ${styles.footer__cols__itemMail}`}>
                      welkinru@gmail.com
                   </li>
