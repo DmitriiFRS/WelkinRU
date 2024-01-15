@@ -65,8 +65,17 @@ const items = [
       type: "Модульный чиллер",
    },
 ];
+type ItemType = {
+   attributes: {
+      name: string;
+      description: string;
+      image: any;
+   };
+};
 
-function Cards() {
+type Props = Array<ItemType>;
+
+function Cards({ items }: { items: Props }) {
    return (
       <section className={styles.cards}>
          <Content items={items} />

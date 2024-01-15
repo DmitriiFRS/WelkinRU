@@ -1,27 +1,40 @@
+import Link from "next/link";
 import styles from "../catalog.module.scss";
 import Image from "next/image";
 
-type ContentInnerProps = {
-   id: number;
-   img: any;
-   name: string;
-   type: string;
+type ItemType = {
+   attributes: {
+      name: string;
+      description: string;
+      reference: string;
+      image: any;
+   };
 };
 
-function ContentInner({ items }: { items: Array<ContentInnerProps> }) {
+type Props = Array<ItemType>;
+
+function ContentInner({ items }: { items: Props }) {
    return (
       <ul className={styles.cards__body}>
-         {items.map((el) => {
+         {items.map((el, index) => {
+            console.log(el.attributes.image.data.attributes.url);
             return (
-               <li key={el.id} className={styles.cards__item}>
-                  <div className={styles.cards__item__imgBlock}>
+               <li key={index} className={styles.cards__item}>
+                  <Link
+                     href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
+                     className={styles.cards__item__imgBlock}
+                  >
                      <div className={styles.cards__item__imgBody}>
-                        <Image src={el.img} alt="welkin" fill />
+                        <Image
+                           src={"http://localhost:1337" + el.attributes.image.data.attributes.url}
+                           alt="welkin"
+                           fill
+                        />
                      </div>
-                  </div>
+                  </Link>
                   <div className={styles.cards__item__titleBlock}>
-                     <div className={styles.cards__item__title}>{el.name}</div>
-                     <div className={styles.cards__item__type}>{el.type}</div>
+                     <div className={styles.cards__item__title}>{el.attributes.name}</div>
+                     <div className={styles.cards__item__type}>{el.attributes.description}</div>
                   </div>
                   <button className={`${styles.cards__item__btn} btnYellow`}>
                      <span>Узнать цену</span>

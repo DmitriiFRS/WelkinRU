@@ -1,19 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import styles from "../catalog.module.scss";
-import Image from "next/image";
 import Pagination from "../Pagination";
 import ContentInner from "./ContentInner";
 
-type ContentProps = {
-   id: number;
-   img: any;
-   name: string;
-   type: string;
+type ItemType = {
+   attributes: {
+      name: string;
+      description: string;
+      reference: string;
+      image: any;
+   };
 };
 
-function Content({ items }: { items: Array<ContentProps> }) {
+type Props = Array<ItemType>;
+
+function Content({ items }: { items: Props }) {
    const [currentPage, setCurrentPage] = useState(1);
    const itemsPerPage = 6;
    const lastItemIndex = currentPage * itemsPerPage;
