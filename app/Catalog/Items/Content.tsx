@@ -7,7 +7,7 @@ import ContentInner from "./ContentInner";
 type ItemType = {
    attributes: {
       name: string;
-      description: string;
+      type: string;
       reference: string;
       image: any;
    };

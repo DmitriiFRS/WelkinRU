@@ -5,7 +5,7 @@ import Image from "next/image";
 type ItemType = {
    attributes: {
       name: string;
-      description: string;
+      type: string;
       reference: string;
       image: any;
    };
@@ -34,7 +34,7 @@ function ContentInner({ items }: { items: Props }) {
                   </Link>
                   <div className={styles.cards__item__titleBlock}>
                      <div className={styles.cards__item__title}>{el.attributes.name}</div>
-                     <div className={styles.cards__item__type}>{el.attributes.description}</div>
+                     <div className={styles.cards__item__type}>{el.attributes.type}</div>
                   </div>
                   <button className={`${styles.cards__item__btn} btnYellow`}>
                      <span>Узнать цену</span>

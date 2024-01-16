@@ -11,7 +11,7 @@ async function Catalog() {
         data {
           attributes {
             name,
-            description,
+            type,
             reference
             image {
               data {
@@ -25,7 +25,6 @@ async function Catalog() {
       }
     }
    `);
-   //console.log(data.data.products.data[0].attributes.image.data.attributes.url);
    return (
       <div className={styles.catalog}>
          <div className="container">
