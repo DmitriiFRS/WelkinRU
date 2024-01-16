@@ -18,15 +18,6 @@ type ButtonsType = Array<ButtonsInnerType>;
 
 const buttons: ButtonsType = [
    {
-      id: 0,
-      title: "Цена",
-      rangeSlider: {
-         min: 1000,
-         max: 9999,
-         minDistance: 1000,
-      },
-   },
-   {
       id: 1,
       title: "Серия",
       checkbox: [" H30/5R1B", "2", "3", "4"],
@@ -43,7 +34,7 @@ const buttons: ButtonsType = [
    {
       id: 1000,
       title: "Тип фанкойла",
-      checkbox: [" H30/5R1B", "2", "3"],
+      checkbox: ["Чиллер-фанкойл", "VRF Система", "Приточные установки", "Крышные кондиционеры"],
    },
    {
       id: 10000,

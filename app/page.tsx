@@ -32,7 +32,8 @@ export default async function Home() {
                     id,
                     attributes {
                       name,
-                      description,
+                      type,
+                      reference
                       image {
                          data {
                            attributes {

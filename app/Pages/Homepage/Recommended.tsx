@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./homepage.module.scss";
 import Image from "next/image";
 
@@ -5,7 +6,8 @@ type RecommendedType = {
    id: number;
    attributes: {
       name: string;
-      description: string;
+      type: string;
+      reference: string;
       image: {
          data: {
             attributes: {
@@ -19,7 +21,8 @@ type Products = {
    id: number;
    attributes: {
       name: string;
-      description: string;
+      type: string;
+      reference: string;
       image: any;
    };
 };
@@ -32,20 +35,25 @@ async function Recommended({ data }: { data: Array<Products> }) {
                {data.map((el: RecommendedType) => {
                   return (
                      <li key={el.id} className={styles.recommended__item}>
-                        <div className={styles.recommended__cardBody}>
-                           <div className={styles.recommended__imgBody}>
-                              <Image
-                                 src={"http://localhost:1337" + el.attributes.image.data.attributes.url}
-                                 alt={el.attributes.name}
-                                 fill
-                              />
+                        <Link href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}>
+                           <div className={styles.recommended__cardBody}>
+                              <div className={styles.recommended__imgBody}>
+                                 <Image
+                                    src={"http://localhost:1337" + el.attributes.image.data.attributes.url}
+                                    alt={el.attributes.name}
+                                    fill
+                                 />
+                              </div>
                            </div>
-                        </div>
+                        </Link>
                         <p className={styles.recommended__model}>{el.attributes.name}</p>
-                        <p className={styles.recommended__type}>{el.attributes.description}</p>
-                        <button className={styles.recommended__btn}>
+                        <p className={styles.recommended__type}>{el.attributes.type}</p>
+                        <Link
+                           href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
+                           className={styles.recommended__btn}
+                        >
                            <span>Узнать цену</span>
-                        </button>
+                        </Link>
                      </li>
                   );
                })}

@@ -53,12 +53,17 @@ function Equip() {
                </Link>
             </div>
             <div className={styles.equip__itemsBody}>
-               <div className={styles.equip__item1}>
+               <Link
+                  href={{
+                     pathname: "/Catalog=pwr",
+                  }}
+                  className={styles.equip__item1}
+               >
                   <EquipInnerTitle title={"Приточно-вытяжная установка"} style={styles.equip__innerTitleBody} />
                   <div className={styles.equip__item1__imgBody}>
                      <Image src={pwr} alt="ПВУ" fill />
                   </div>
-               </div>
+               </Link>
                <div className={styles.equip__item2}>
                   <EquipInnerTitle title={"Крышные кондиционеры"} style={styles.equip__innerTitleBody2} />
                   <div className={styles.equip__item2__imgBody}>
