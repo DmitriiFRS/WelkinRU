@@ -1,0 +1,36 @@
+.privacy {
+   &__title {
+      margin: 30px 0 0 0;
+      font-size: 32px;
+      font-weight: 700;
+   }
+   &__main {
+   }
+}
+.text {
+   margin: 40px 0 0 0;
+   &:first-child {
+      margin: 30px 0 0 0;
+   }
+   &__main {
+      margin: 20px 0 0 0;
+      &__title {
+         font-weight: 300;
+         line-height: 140%;
+      }
+      &__item {
+         margin: 20px 0 0 0;
+         font-weight: 300;
+         line-height: 140%;
+         list-style: none;
+         &::before {
+            content: "·";
+            margin: 0 5px 0 0;
+         }
+      }
+   }
+   &__title {
+      font-size: 24px;
+      font-weight: 700;
+   }
+}

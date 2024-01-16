@@ -1,0 +1,80 @@
+.breadcrumbs {
+   margin: 80px 0 0 0;
+}
+
+.range {
+   margin: 0 0 30px 0;
+   & > input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+   }
+   &__inputs {
+      display: flex;
+      gap: 20px;
+      margin: 25px 0 0 0;
+   }
+   &__input {
+      padding: 0 15px;
+      border-radius: 20px;
+      height: 29px;
+      display: flex;
+      justify-content: center;
+      border: 1px solid #ebecec;
+      width: 100%;
+      appearance: none;
+      font-size: 16px;
+      color: #333;
+   }
+   &__sliderBody {
+      margin: 25px 0 0 0;
+   }
+   &__slider {
+      width: 100%;
+      height: 2px;
+      background: #ebecec;
+   }
+   &__minmaxBody {
+      margin: 30px 0 0 0;
+      display: flex;
+      justify-content: space-between;
+      color: #bdbdbd;
+   }
+}
+
+.checkbox {
+   margin: 25px 0 30px 0;
+   display: inline-flex;
+   flex-direction: column;
+   &__item {
+      display: inline-flex;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      &:not(:last-child) {
+         margin: 0 0 6px 0;
+      }
+   }
+   &__checkbox {
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 5px;
+      border: 1px solid #fec300;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+
+      &:checked {
+         background: #fec300;
+         &::before {
+            content: url(../../public/svg/check.svg);
+            position: relative;
+            top: -3px;
+         }
+      }
+   }
+   &__name {
+      margin: 0 0 0 20px;
+      color: #333;
+   }
+}
