@@ -60,7 +60,7 @@ async function Header() {
             </ul>
          </nav>
          <button className={styles.header__tel}>
-            <span></span>
+            <span>{data.data.phone.data.attributes.header}</span>
          </button>
       </div>
    );
