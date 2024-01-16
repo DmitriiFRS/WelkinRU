@@ -40,7 +40,7 @@ async function Footer() {
             <div className={styles.footer__cols__item}>
                <h3>Контакты</h3>
                <ul className={styles.footer__cols__list}>
-                  <li className={styles.footer__cols__item}>{data.data.phone.data.attributes.footer}</li>
+                  <li className={styles.footer__cols__item}></li>
                   <li className={`${styles.footer__cols__item} ${styles.footer__cols__itemMail}`}>
                      welkinru@gmail.com
                   </li>
