@@ -139,11 +139,11 @@
       transition: 0.3s;
    }
    &__subItemBody1 {
-      max-height: 500px;
+      max-height: 1000px;
       transform: scaleY(1);
    }
    &__subItemBody2 {
-      max-height: 500px;
+      max-height: 1000px;
       transform: scaleY(1);
    }
    &__item {
@@ -163,7 +163,7 @@
       max-height: 0;
       &__active {
          transform: scaleY(1);
-         max-height: 500px;
+         max-height: 1000px;
       }
    }
    &__acceptBody {

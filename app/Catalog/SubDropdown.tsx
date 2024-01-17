@@ -9,15 +9,16 @@ import { RootState } from "../Redux/store";
 type Props = {
    id: number;
    title: string;
-   checkbox: any;
+   checkbox: Array<string>;
    classname: string;
 };
-
+const checks = ["fdfd", "fdfdf"];
 function SubDropdown({ el, index }: { el: Props; index: number }) {
    const [isActive, setActive] = useState(false);
    const checkboxes = useSelector((state: RootState) => state.mainReducer.equipCheckboxes);
    function toggleSubmenu() {
       setActive(!isActive);
+      console.log(el);
    }
    return (
       <div
@@ -33,9 +34,7 @@ function SubDropdown({ el, index }: { el: Props; index: number }) {
             />
          </button>
          <div className={`${styles.filter__itemInner} ${isActive ? styles.filter__itemInner__active : ""}`}>
-            {el.checkbox.map((el: any, index: number) => {
-               <Checkboxes key={index} checkbox={el.checkbox} id={el.id} />;
-            })}
+            <Checkboxes key={index} checkbox={el.checkbox} id={el.id} />
          </div>
       </div>
    );

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./utilities.module.scss";
 import { RootState } from "../Redux/store";
-import { useEffect } from "react";
 import { toggleEquipCheckbox } from "../Redux/main.slice";
+import { useEffect } from "react";
 
 function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
    const checkboxes = useSelector((state: RootState) => state.mainReducer.equipCheckboxes);
@@ -11,6 +11,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
    function toggleCheckbox(idx: number) {
       dispatch(toggleEquipCheckbox(idx));
    }
+
    return (
       <div className={styles.checkbox}>
          {id === 1 ? (
@@ -35,16 +36,18 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                })}
             </>
          ) : (
-            <>
-               {checkbox.map((el, index) => {
-                  return (
-                     <label key={index} htmlFor={(id + index).toString()} className={styles.checkbox__item}>
-                        <input type="checkbox" id={(id + index).toString()} className={styles.checkbox__checkbox} />
-                        <span className={styles.checkbox__name}>{el}</span>
-                     </label>
-                  );
-               })}
-            </>
+            checkbox && (
+               <>
+                  {checkbox.map((el, index) => {
+                     return (
+                        <label key={index} htmlFor={(id + index).toString()} className={styles.checkbox__item}>
+                           <input type="checkbox" id={(id + index).toString()} className={styles.checkbox__checkbox} />
+                           <span className={styles.checkbox__name}>{el}</span>
+                        </label>
+                     );
+                  })}
+               </>
+            )
          )}
       </div>
    );
