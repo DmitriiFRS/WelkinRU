@@ -19,8 +19,8 @@ type ButtonsType = Array<ButtonsInnerType>;
 const buttons: ButtonsType = [
    {
       id: 1,
-      title: "Серия",
-      checkbox: [" H30/5R1B", "2", "3", "4"],
+      title: "Тип оборудования",
+      checkbox: ["Чиллер-фанкойл", "VRF Система", "Приточные установки", "Крышные кондиционеры"],
    },
    {
       id: 100,
@@ -33,13 +33,12 @@ const buttons: ButtonsType = [
    },
    {
       id: 1000,
-      title: "Тип фанкойла",
-      checkbox: ["Чиллер-фанкойл", "VRF Система", "Приточные установки", "Крышные кондиционеры"],
-   },
-   {
-      id: 10000,
-      title: "Система",
-      checkbox: ["1", "2"],
+      title: "Холодопроизводительность",
+      rangeSlider: {
+         min: 10,
+         max: 1000,
+         minDistance: 100,
+      },
    },
 ];
 function Filter() {

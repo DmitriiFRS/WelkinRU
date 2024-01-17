@@ -31,6 +31,29 @@ async function Details({ params }: { params: { Details: string } }) {
           }
         }
       }
+      recommended(id: 1) {
+        data {
+          attributes {
+            produkties {
+              data {
+                id,
+                attributes {
+                  name,
+                  type,
+                  reference
+                  image {
+                     data {
+                       attributes {
+                         url
+                       }
+                     }
+                   }
+                }
+              }
+            }
+          }
+        }
+      }
     }
    `);
    return (
@@ -38,6 +61,7 @@ async function Details({ params }: { params: { Details: string } }) {
          <div className="container">
             <Breadcrumbs />
             <DetailsBody data={data.data.products.data} details={params.Details} />
+            <Recommended data={data.data.recommended.data.attributes.produkties.data} />
             <ContactUs />
          </div>
       </div>

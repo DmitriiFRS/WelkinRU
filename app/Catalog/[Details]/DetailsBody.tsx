@@ -33,11 +33,6 @@ function DetailsBody({ data, details }: Props) {
       });
       setItem(newItem[0]);
    }, [data]);
-
-   useEffect(() => {
-      console.log(item);
-   }, [item]);
-   console.log(data);
    return (
       item && (
          <div className={styles.details}>
