@@ -129,6 +129,23 @@
          margin: 0 0 10px 0;
       }
    }
+   &__subItemBody {
+      margin: 0 0 0 30px;
+      max-height: 0px;
+      transform: scaleY(0);
+      &:not(:last-child) {
+         margin: 0 0 10px 30px;
+      }
+      transition: 0.3s;
+   }
+   &__subItemBody1 {
+      max-height: 500px;
+      transform: scaleY(1);
+   }
+   &__subItemBody2 {
+      max-height: 500px;
+      transform: scaleY(1);
+   }
    &__item {
       display: flex;
       width: 100%;

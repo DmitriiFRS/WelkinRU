@@ -7,6 +7,35 @@ import RangeSlider from "../Utilities/RangeSlider";
 import Checkboxes from "../Utilities/Checkboxes";
 import { useState } from "react";
 import { ButtonsInnerType } from "./Filter";
+import SubDropdown from "./SubDropdown";
+
+const subDropdown = [
+   {
+      id: 2000,
+      title: "Тип фанкойла",
+      checkbox: [
+         "Чиллеры",
+         "Кассетные фанкойлы",
+         "Канальные фанкойлы",
+         "Настенные фанкойлы",
+         "Потолочные и напольные фанкойлы",
+      ],
+      classname: styles.filter__subItemBody1,
+   },
+   {
+      id: 3000,
+
+      title: "Тип VRF",
+      checkbox: [
+         "Чиллеры",
+         "Кассетные фанкойлы",
+         "Канальные фанкойлы",
+         "Настенные фанкойлы",
+         "Потолочные и напольные фанкойлы",
+      ],
+      classname: styles.filter__subItemBody2,
+   },
+];
 
 function DropdownMenu({ el }: { el: ButtonsInnerType }) {
    const [isActive, setActive] = useState(false);
@@ -31,7 +60,13 @@ function DropdownMenu({ el }: { el: ButtonsInnerType }) {
                   minDistance={el.rangeSlider.minDistance}
                />
             ) : (
-               el.checkbox && <Checkboxes checkbox={el.checkbox} id={el.id} />
+               el.checkbox && (
+                  <>
+                     <Checkboxes checkbox={el.checkbox} id={el.id} />
+                     <SubDropdown el={subDropdown[0]} index={0} />
+                     <SubDropdown el={subDropdown[1]} index={1} />
+                  </>
+               )
             )}
          </div>
       </div>
