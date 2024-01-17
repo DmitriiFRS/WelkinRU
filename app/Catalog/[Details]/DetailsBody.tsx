@@ -44,11 +44,7 @@ function DetailsBody({ data, details }: Props) {
             <div className={styles.details__main}>
                <div className={`${styles.cards__item__imgBlock} ${styles.cards__item__imgBlock__item}`}>
                   <div className={`${styles.cards__item__imgBody} ${styles.cards__item__imgBody__item}`}>
-                     <Image
-                        src={"http://localhost:1337" + item.attributes.image.data.attributes.url}
-                        alt="welkin"
-                        fill
-                     />
+                     <Image src={item.attributes.image.data.attributes.url} alt="welkin" fill />
                   </div>
                </div>
                <div className={styles.details__mainParamsBody}>
