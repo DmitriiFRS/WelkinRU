@@ -17,7 +17,7 @@ type Props = Array<ItemType>;
 
 function Content({ items }: { items: Props }) {
    const [currentPage, setCurrentPage] = useState(1);
-   const itemsPerPage = 3;
+   const itemsPerPage = 9;
    const lastItemIndex = currentPage * itemsPerPage;
    const firstItemIndex = lastItemIndex - itemsPerPage;
    const currentItems = items.slice(firstItemIndex, lastItemIndex);

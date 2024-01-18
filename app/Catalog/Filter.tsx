@@ -19,7 +19,7 @@ type ButtonsType = Array<ButtonsInnerType>;
 const buttons: ButtonsType = [
    {
       id: 1,
-      title: "Тип оборудования",
+      title: "Система",
       checkbox: ["Чиллер-фанкойл", "VRF Система", "Приточные установки", "Крышные кондиционеры"],
    },
    {

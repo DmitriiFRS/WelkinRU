@@ -33,6 +33,7 @@
    &__item {
       display: flex;
       flex-direction: column;
+      min-height: 100%;
       &__imgBlock {
          background: #ebecec;
          border-radius: 40px;
@@ -57,12 +58,17 @@
          height: 100%;
          width: 100%;
          transition: 0.2s;
-         &__item {
-         }
+      }
+      &__titleBlock {
+         display: flex;
+         flex-direction: column;
+         flex: 1 1 auto;
       }
       &__title {
          font-size: 24px;
          font-weight: 700;
+         max-width: 300px;
+         flex: 1 1 auto;
       }
       &__type {
          margin: 20px 0 0 0;
