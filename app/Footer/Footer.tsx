@@ -29,15 +29,21 @@ async function Footer() {
             </Link>
          </div>
          <div className={styles.footer__cols}>
-            <div className={styles.footer__cols__item}>
+            <div className={styles.footer__cols__items}>
                <h3>Навигация</h3>
                <ul className={styles.footer__cols__list}>
-                  <li className={styles.footer__cols__item}>каталог</li>
-                  <li className={styles.footer__cols__item}>о компании</li>
-                  <li className={styles.footer__cols__item}>вопрос-ответ</li>
+                  <Link className={styles.footer__cols__itemBody} href={"/Catalog"}>
+                     <li className={styles.footer__cols__item}>каталог</li>
+                  </Link>
+                  <Link className={styles.footer__cols__itemBody} href={"/About"}>
+                     <li className={styles.footer__cols__item}>о компании</li>
+                  </Link>
+                  <Link className={styles.footer__cols__itemBody} href={"/faq"}>
+                     <li className={styles.footer__cols__item}>вопрос-ответ</li>
+                  </Link>
                </ul>
             </div>
-            <div className={styles.footer__cols__item}>
+            <div className={styles.footer__cols__items}>
                <h3>Контакты</h3>
                <ul className={styles.footer__cols__list}>
                   <li className={styles.footer__cols__item}>{data.data.phone.data.attributes.footer}</li>
@@ -46,7 +52,7 @@ async function Footer() {
                   </li>
                </ul>
             </div>
-            <div className={styles.footer__cols__item}>
+            <div className={styles.footer__cols__items}>
                <h3>Соц сети</h3>
                <ul className={styles.footer__cols__list}>
                   <li className={styles.footer__cols__item}>Telegram</li>

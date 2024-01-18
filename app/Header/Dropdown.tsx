@@ -10,27 +10,27 @@ const list = [
    {
       id: 0,
       title: "Крышные кондиционеры",
-      link: "/Catalog/Rooftop",
+      link: "/Catalog",
    },
    {
       id: 1,
       title: "Чиллеры",
-      link: "/Catalog/Chiller",
+      link: "/Catalog",
    },
    {
       id: 2,
       title: "WRV системы",
-      link: "/Catalog/WRV",
+      link: "/Catalog",
    },
    {
       id: 3,
       title: "Фанкойлы",
-      link: "/Catalog/Fancoil",
+      link: "/Catalog",
    },
    {
       id: 4,
       title: "Приточно-вытяжная установка",
-      link: "/Catalog/AHU",
+      link: "/Catalog",
    },
 ];
 

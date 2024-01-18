@@ -66,6 +66,15 @@
 }
 .equip {
    margin: 120px 0 0 0;
+   &__items {
+      overflow: hidden;
+      &:hover .equip__items__imgBody {
+         transform: scale(1.1);
+      }
+      &__imgBody {
+         transition: 0.3s;
+      }
+   }
    &__titleBody {
       display: flex;
       justify-content: space-between;
@@ -132,6 +141,7 @@
       border-radius: 40px;
       padding: 40px 0 0 30px;
       overflow: hidden;
+      color: inherit;
       &__imgBody {
          position: relative;
          aspect-ratio: 720/550;
@@ -146,6 +156,7 @@
       max-height: 235px;
       display: flex;
       gap: 52px;
+      color: inherit;
       &__imgBody {
          position: relative;
          aspect-ratio: 461/193;
@@ -166,6 +177,7 @@
          padding: 40px 0 0 30px;
          display: flex;
          flex-direction: column;
+         color: inherit;
          &__imgBody {
             margin: 0 0 0 150px;
             position: relative;
@@ -183,6 +195,7 @@
          display: flex;
          flex-direction: row-reverse;
          gap: 25px;
+         color: inherit;
          &__imgBody {
             position: relative;
             max-width: 252px;
@@ -505,6 +518,7 @@
       display: inline-flex;
       max-width: 127px;
       background: transparent;
+      color: inherit;
       &::after {
          content: url("/svg/next.svg");
          margin: 0 0 0 6px;

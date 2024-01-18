@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./homepage.module.scss";
 import Image from "next/image";
 
@@ -8,9 +9,9 @@ async function Preview({ data }: any) {
             <div className={styles.preview__titleBody}>
                <h1 className={styles.preview__title}>{data.data.attributes.title}</h1>
                <p className={styles.preview__subtitle}>{data.data.attributes.description}</p>
-               <button className={`${styles.preview__btn} btnBlack`}>
+               <Link href={"/Catalog"} className={`${styles.preview__btn} btnBlack`}>
                   <span>перейти в каталог</span>
-               </button>
+               </Link>
             </div>
             <div className={styles.preview__imagesBody}>
                <div className={styles.preview__imgBody}>

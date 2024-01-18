@@ -20,10 +20,19 @@
    &__cols {
       display: flex;
       gap: 120px;
+      &__itemBody {
+         color: inherit;
+      }
       &__item {
          font-weight: 700;
+         margin: 0 0 15px 0;
+         transition: 0.2s;
+         cursor: pointer;
          &:not(:last-child) {
             margin: 0 0 15px 0;
+         }
+         &:hover {
+            color: #fec300;
          }
       }
       &__itemMail {

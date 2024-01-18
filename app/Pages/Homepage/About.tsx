@@ -1,6 +1,7 @@
 import styles from "./homepage.module.scss";
 import Image from "next/image";
 import aboutImg from "../../../public/img/homepage/aboutImg.jpg";
+import Link from "next/link";
 
 type Props = {
    data: {
@@ -19,7 +20,9 @@ function About({ data }: Props) {
             <div className={styles.about__titleBody}>
                <h2 className={styles.about__title}>{data.title}</h2>
                <p className={styles.about__subtitle}>{data.description}</p>
-               <button className={styles.about__btn}>Подробнее</button>
+               <Link href={"/About"} className={styles.about__btn}>
+                  Подробнее
+               </Link>
             </div>
          </div>
       </div>
