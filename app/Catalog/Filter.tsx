@@ -16,7 +16,7 @@ export type ButtonsInnerType = {
 
 export type ButtonsType = Array<ButtonsInnerType>;
 
-function Filter({ getFiltration, buttons }: { getFiltration: Function; buttons: ButtonsType }) {
+function Filter({ getFiltration, buttons }: { getFiltration: () => void; buttons: ButtonsType }) {
    return (
       <section className={styles.filter}>
          <div className={styles.filter__sortBtn}>
