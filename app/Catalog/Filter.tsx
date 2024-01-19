@@ -14,34 +14,9 @@ export type ButtonsInnerType = {
    checkbox?: Array<string>;
 };
 
-type ButtonsType = Array<ButtonsInnerType>;
+export type ButtonsType = Array<ButtonsInnerType>;
 
-const buttons: ButtonsType = [
-   {
-      id: 1,
-      title: "Система",
-      checkbox: ["Чиллер-фанкойл", "VRF Система", "Приточные установки", "Крышные кондиционеры"],
-   },
-   {
-      id: 100,
-      title: "Площадь, кв.м",
-      rangeSlider: {
-         min: 10,
-         max: 1000,
-         minDistance: 100,
-      },
-   },
-   {
-      id: 1000,
-      title: "Холодопроизводительность",
-      rangeSlider: {
-         min: 10,
-         max: 1000,
-         minDistance: 100,
-      },
-   },
-];
-function Filter() {
+function Filter({ getFiltration, buttons }: { getFiltration: Function; buttons: ButtonsType }) {
    return (
       <section className={styles.filter}>
          <div className={styles.filter__sortBtn}>
@@ -54,7 +29,7 @@ function Filter() {
             })}
          </div>
          <div className={styles.filter__acceptBody}>
-            <button className={`${styles.filter__accept} btnBlack`}>
+            <button className={`${styles.filter__accept} btnBlack`} onClick={getFiltration}>
                <span>Применить</span>
             </button>
          </div>

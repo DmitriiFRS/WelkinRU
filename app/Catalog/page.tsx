@@ -32,7 +32,6 @@ async function Catalog() {
             <h2 className={styles.catalog__title}>Каталог</h2>
             <div className={styles.catalog__body}>
                <Cards items={data.data.products.data} />
-               <Filter />
             </div>
          </div>
       </div>
