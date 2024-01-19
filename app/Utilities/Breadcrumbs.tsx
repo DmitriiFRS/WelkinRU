@@ -12,12 +12,14 @@ function Breadcrumbs() {
 
    return (
       <div className={styles.breadcrumbs}>
-         <Link href={"/"}>Главная</Link>
+         <Link className={styles.breadcrumbs__link} href={"/"}>
+            Главная
+         </Link>
          <span>{" / "}</span>
          {router.split("/").map((el, index) => {
             return (
-               <Link key={index} href={"/" + el}>
-                  {el}
+               <Link className={styles.breadcrumbs__link} key={index} href={"/" + el}>
+                  {index > 1 ? " / " + el : el}
                </Link>
             );
          })}

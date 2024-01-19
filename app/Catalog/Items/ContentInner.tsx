@@ -25,7 +25,7 @@ function ContentInner({ items }: { items: Props }) {
                      className={styles.cards__item__imgBlock}
                   >
                      <div className={styles.cards__item__imgBody}>
-                        <Image src={el.attributes.image.data.attributes.url} alt="welkin" fill />
+                        <Image src={el.attributes.image.data.attributes.url} alt="welkin" fill objectFit="contain" />
                      </div>
                   </Link>
                   <div className={styles.cards__item__titleBlock}>

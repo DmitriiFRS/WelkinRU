@@ -4,6 +4,7 @@ import Recommended from "@/app/Pages/Homepage/Recommended";
 import ContactUs from "@/app/Pages/Homepage/ContactUs";
 import { fetchGraphqlData } from "@/app/Utilities/FetchData";
 import DetailsBody from "./DetailsBody";
+import Chars from "./Chars";
 
 async function Details({ params }: { params: { Details: string } }) {
    const data = await fetchGraphqlData(`
@@ -12,6 +13,7 @@ async function Details({ params }: { params: { Details: string } }) {
         data {
           attributes {
             name,
+            type,
             Voltage,
             reference,
             kBTU,
@@ -56,6 +58,7 @@ async function Details({ params }: { params: { Details: string } }) {
       }
     }
    `);
+   console.log(data.data.products.data[0].attributes);
    return (
       <div className={styles.details}>
          <div className="container">

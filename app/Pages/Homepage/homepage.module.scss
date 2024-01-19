@@ -440,10 +440,10 @@
    &__model {
       font-size: 24px;
       font-weight: 700;
+      flex: 1 1 auto;
    }
    &__type {
       color: #828282;
-      flex: 1 1 auto;
    }
    &__btn {
       display: flex;

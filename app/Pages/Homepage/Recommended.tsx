@@ -38,7 +38,12 @@ async function Recommended({ data }: { data: Array<Products> }) {
                         <Link href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}>
                            <div className={styles.recommended__cardBody}>
                               <div className={styles.recommended__imgBody}>
-                                 <Image src={el.attributes.image.data.attributes.url} alt={el.attributes.name} fill />
+                                 <Image
+                                    src={el.attributes.image.data.attributes.url}
+                                    alt={el.attributes.name}
+                                    fill
+                                    objectFit="contain"
+                                 />
                               </div>
                            </div>
                         </Link>
