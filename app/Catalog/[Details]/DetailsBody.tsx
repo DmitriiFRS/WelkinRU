@@ -13,11 +13,13 @@ export type DataType = {
       reference: string;
       kBTU: string | null;
       ton: string | null;
-      HP: string | null;
-      kW: string | null;
+      Heat_Output: string | null;
+      Cooling_Output: string | null;
       description1: string | null;
       description2: string | null;
       description3: string | null;
+      size: string | null;
+      subtype: string;
       image: any;
    };
 };
@@ -49,11 +51,11 @@ function DetailsBody({ data, details }: Props) {
                      <div className={styles.details__name}>{item.attributes.name}</div>
                      <div className={styles.details__mainParams}>
                         <div className={styles.details__mainParam}>
-                           Теплопроизводительность, Квт:<span>{item.attributes.HP}</span>
+                           Теплопроизводительность, Квт:<span>{item.attributes.Heat_Output}</span>
                         </div>
                         <div className={styles.details__mainParam}>
                            Холодопроизводительность, Квт:
-                           <span>{item.attributes.kW}</span>
+                           <span>{item.attributes.Cooling_Output}</span>
                         </div>
                      </div>
                      <button className={`${styles.details__item__btn} btnYellow`}>

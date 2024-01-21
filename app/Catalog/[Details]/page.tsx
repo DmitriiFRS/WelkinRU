@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/app/Utilities/Breadcrumbs";
 import styles from "../catalog.module.scss";
 import Recommended from "@/app/Pages/Homepage/Recommended";
-import ContactUs from "@/app/Pages/Homepage/ContactUs";
+import ContactUs from "@/app/Pages/Homepage/ContactUs/ContactUs";
 import { fetchGraphqlData } from "@/app/Utilities/FetchData";
 import DetailsBody from "./DetailsBody";
 import Chars from "./Chars";
@@ -9,30 +9,30 @@ import Chars from "./Chars";
 async function Details({ params }: { params: { Details: string } }) {
    const data = await fetchGraphqlData(`
    query {
-      products {
-        data {
-          attributes {
-            name,
-            type,
-            Voltage,
-            reference,
-            kBTU,
-            ton,
-            HP,
-            kW,
-            description1,
-            description2,
-            description3,
-            image {
-              data {
-                attributes {
-                  url
-                }
+    products {
+      data {
+        attributes {
+          name
+          type
+          subtype
+          reference
+          Cooling_Output
+          Heat_Output
+          ton
+          size
+          description1
+          description2
+          description3
+          image {
+            data {
+              attributes {
+                url
               }
             }
           }
         }
       }
+    }
       recommended(id: 1) {
         data {
           attributes {
@@ -58,7 +58,7 @@ async function Details({ params }: { params: { Details: string } }) {
       }
     }
    `);
-   console.log(data.data.products.data[0].attributes);
+   console.log(data.data.products.data);
    return (
       <div className={styles.details}>
          <div className="container">

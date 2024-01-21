@@ -1,5 +1,5 @@
 import About from "./Pages/Homepage/About";
-import ContactUs from "./Pages/Homepage/ContactUs";
+import ContactUs from "./Pages/Homepage/ContactUs/ContactUs";
 import Equip from "./Pages/Homepage/Equip";
 import Preview from "./Pages/Homepage/Preview";
 import Recommended from "./Pages/Homepage/Recommended";

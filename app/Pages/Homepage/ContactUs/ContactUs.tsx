@@ -1,4 +1,6 @@
-import styles from "./homepage.module.scss";
+import PushData from "./PushData";
+import styles from "../homepage.module.scss";
+import Inputs from "./Inputs";
 
 function ContactUs() {
    return (
@@ -11,14 +13,7 @@ function ContactUs() {
                   гарантируем, что вы получите оптимальное решение, отвечающее вашим потребностям и бюджету.
                </p>
             </div>
-            <div className={styles.contactUs__inputsBody}>
-               <input className={styles.contactUs__input} placeholder="ваше имя" type="text" />
-               <input className={styles.contactUs__input} placeholder="ваш телефон" type="tel" />
-               <textarea name="textarea" placeholder="ваш вопрос" className={styles.contactUs__inputArea}></textarea>
-               <button className={`${styles.contactUs__btn} btnBlack`}>
-                  <span>Отправить</span>
-               </button>
-            </div>
+            <Inputs />
          </div>
       </div>
    );

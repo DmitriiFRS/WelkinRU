@@ -12,6 +12,11 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
       dispatch(toggleEquipCheckbox(idx));
    }
 
+   useEffect(() => {
+      if (checkboxes[0]) {
+      }
+   }, [checkboxes]);
+
    return (
       <div className={styles.checkbox}>
          {id === 1 ? (

@@ -21,11 +21,11 @@ function Chars({ item }: Props) {
                </li>
                <li className={styles.chars__item}>
                   <div className={styles.chars__item__title}>Размер</div>
-                  <div className={styles.chars__item__value}>{item.attributes.Voltage}</div>
+                  <div className={styles.chars__item__value}>{item.attributes.size}</div>
                </li>
                <li className={styles.chars__item}>
                   <div className={styles.chars__item__title}>HP</div>
-                  <div className={styles.chars__item__value}>{item.attributes.HP}</div>
+                  <div className={styles.chars__item__value}>{item.attributes.Heat_Output}</div>
                </li>
             </ul>
          </div>

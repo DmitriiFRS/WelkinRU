@@ -1,4 +1,4 @@
-import ContactUs from "../Pages/Homepage/ContactUs";
+import ContactUs from "../Pages/Homepage/ContactUs/ContactUs";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import Questions from "./Questions";
 import styles from "./faq.module.scss";
