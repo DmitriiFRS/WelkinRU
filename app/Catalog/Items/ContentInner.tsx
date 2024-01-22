@@ -32,9 +32,12 @@ function ContentInner({ items, isTransition }: { items: Props; isTransition: boo
                      <div className={styles.cards__item__title}>{el.attributes.name}</div>
                      <div className={styles.cards__item__type}>{el.attributes.type}</div>
                   </div>
-                  <button className={`${styles.cards__item__btn} btnYellow`}>
+                  <Link
+                     href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
+                     className={`${styles.cards__item__btn} btnYellow`}
+                  >
                      <span>Узнать цену</span>
-                  </button>
+                  </Link>
                </li>
             );
          })}
