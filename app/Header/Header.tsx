@@ -1,13 +1,14 @@
 import styles from "./header.module.scss";
 import Image from "next/image";
 import logo from "../../public/svg/logo.svg";
-import arrow from "../../public/svg/arrow.svg";
 import Link from "next/link";
-import CatalogMenu from "./CatalogMenu";
 import Dropdown from "./Dropdown";
 import { fetchGraphqlData } from "../Utilities/FetchData";
+import Burger from "./Burger";
+import MobileNav from "./MobileNav";
+import MobileBlock from "./Mobile/MobileBlock";
 
-const list = [
+export const list = [
    {
       id: 0,
       name: "Каталог",
@@ -38,6 +39,7 @@ async function Header() {
    `);
    return (
       <div className={`container ${styles.header}`}>
+         <MobileBlock />
          <Link className={styles.header__logo} href={"/"}>
             <Image src={logo} alt="welkin" fill />
          </Link>

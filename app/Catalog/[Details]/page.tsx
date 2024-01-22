@@ -64,8 +64,8 @@ async function Details({ params }: { params: { Details: string } }) {
             <Breadcrumbs />
             <DetailsBody data={data.data.products.data} details={params.Details} />
             <Recommended data={data.data.recommended.data.attributes.produkties.data} />
-            <ContactUs />
          </div>
+         <ContactUs />
       </div>
    );
 }
