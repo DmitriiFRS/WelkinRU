@@ -30,7 +30,7 @@ async function Footer() {
          </div>
          <div className={styles.footer__cols}>
             <div className={styles.footer__cols__items}>
-               <h3>Навигация</h3>
+               <h3 className={styles.footer__cols__title}>Навигация</h3>
                <ul className={styles.footer__cols__list}>
                   <Link className={styles.footer__cols__itemBody} href={"/Catalog"}>
                      <li className={styles.footer__cols__item}>каталог</li>
@@ -44,7 +44,7 @@ async function Footer() {
                </ul>
             </div>
             <div className={styles.footer__cols__items}>
-               <h3>Контакты</h3>
+               <h3 className={styles.footer__cols__title}>Контакты</h3>
                <ul className={styles.footer__cols__list}>
                   <li className={styles.footer__cols__item}>{data.data.phone.data.attributes.footer}</li>
                   <li className={`${styles.footer__cols__item} ${styles.footer__cols__itemMail}`}>
@@ -53,7 +53,7 @@ async function Footer() {
                </ul>
             </div>
             <div className={styles.footer__cols__items}>
-               <h3>Соц сети</h3>
+               <h3 className={styles.footer__cols__title}>Соц сети</h3>
                <ul className={styles.footer__cols__list}>
                   <li className={styles.footer__cols__item}>Telegram</li>
                   <li className={styles.footer__cols__item}>Instagram</li>
