@@ -33,7 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #b3b3b3;
+      background: #fdf5dc;
       @media (max-width: 600px) {
          display: flex;
       }
@@ -112,6 +112,11 @@
       @media (max-width: 820px) {
          max-width: 150px;
          height: 45px;
+      }
+      @media (max-width: 390px) {
+         font-size: 12px;
+         max-width: 120px;
+         height: 38px;
       }
       &:hover {
          color: #fff;
