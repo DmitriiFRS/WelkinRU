@@ -12,13 +12,11 @@ type Props = {
    checkbox: Array<string>;
    classname: string;
 };
-const checks = ["fdfd", "fdfdf"];
 function SubDropdown({ el, index }: { el: Props; index: number }) {
    const [isActive, setActive] = useState(false);
    const checkboxes = useSelector((state: RootState) => state.mainReducer.equipCheckboxes);
    function toggleSubmenu() {
       setActive(!isActive);
-      console.log(el);
    }
    return (
       <div

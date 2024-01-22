@@ -2,13 +2,28 @@
 
 import PushData from "./PushData";
 import styles from "../homepage.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Popup from "./Popup";
 
 function Inputs() {
+   const scrollWidth = window.innerWidth - document.body.clientWidth;
+   const [isPopupOpen, setPopupOpen] = useState(false);
    const [name, setName] = useState("");
    const [tel, setTel] = useState<string>("");
    const [question, setQuestion] = useState("");
-   function throwData() {}
+   function throwData() {
+      setPopupOpen(true);
+   }
+
+   useEffect(() => {
+      if (isPopupOpen) {
+         document.body.style.overflow = "hidden";
+         document.body.style.paddingRight = `${scrollWidth}px`;
+      } else {
+         document.body.style.overflow = "auto";
+         document.body.style.paddingRight = "0px";
+      }
+   }, [isPopupOpen, scrollWidth]);
 
    function changeTel(e: React.ChangeEvent<HTMLInputElement>) {
       if (!/^\d*$/.test(e.target.value)) return;
@@ -40,6 +55,7 @@ function Inputs() {
             className={styles.contactUs__inputArea}
          ></textarea>
          <PushData throwData={throwData} />
+         <Popup isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen} />
       </div>
    );
 }

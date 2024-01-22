@@ -12,6 +12,8 @@ export type ButtonsInnerType = {
       minDistance: number;
    };
    checkbox?: Array<string>;
+   chillerCheckbox?: Array<string>;
+   vrfCheckbox?: Array<string>;
 };
 
 export type ButtonsType = Array<ButtonsInnerType>;

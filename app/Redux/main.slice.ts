@@ -8,11 +8,15 @@ type Inner = {
 type initialStateType = {
    isHeaderDropdownActive: boolean;
    equipCheckboxes: Array<boolean>;
+   chillerCheckboxes: Array<boolean>;
+   vrfCheckboxes: Array<boolean>;
 };
 
 const initialState: initialStateType = {
    isHeaderDropdownActive: false,
    equipCheckboxes: [false, false, false, false],
+   chillerCheckboxes: [false, false, false, false, false],
+   vrfCheckboxes: [false, false, false, false],
 };
 
 export const mainSlice = createSlice({

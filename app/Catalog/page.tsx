@@ -12,7 +12,8 @@ async function Catalog() {
           attributes {
             name,
             type,
-            reference
+            reference,
+            subtype
             image {
               data {
                 attributes {

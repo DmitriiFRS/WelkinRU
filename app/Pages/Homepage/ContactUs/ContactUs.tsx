@@ -1,4 +1,3 @@
-import PushData from "./PushData";
 import styles from "../homepage.module.scss";
 import Inputs from "./Inputs";
 

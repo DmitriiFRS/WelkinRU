@@ -23,29 +23,26 @@ const buttons: ButtonsType = [
       id: 1,
       title: "Система",
       checkbox: ["Чиллер-фанкойл", "VRF-Система", "Приточные установки", "Крышные кондиционеры"],
-   },
-   {
-      id: 100,
-      title: "Площадь, кв.м",
-      rangeSlider: {
-         min: 10,
-         max: 1000,
-         minDistance: 100,
-      },
-   },
-   {
-      id: 1000,
-      title: "Холодопроизводительность",
-      rangeSlider: {
-         min: 10,
-         max: 1000,
-         minDistance: 100,
-      },
+      chillerCheckbox: [
+         "Чиллеры",
+         "Кассетные фанкойлы",
+         "Канальные фанкойлы",
+         "Настенные фанкойлы",
+         "Потолочные и напольные фанкойлы",
+      ],
+      vrfCheckbox: [
+         "Наружные блоки",
+         "Кассетные внутренние блоки",
+         "Канальные внутренние блоки",
+         "Настенные внутренние блоки",
+      ],
    },
 ];
 
 function Cards({ items }: { items: Props }) {
    const checkboxes = useSelector((state: RootState) => state.mainReducer.equipCheckboxes);
+   const chillerCheckbox = useSelector((state: RootState) => state.mainReducer.chillerCheckboxes);
+   const vrfCheckbox = useSelector((state: RootState) => state.mainReducer.vrfCheckboxes);
    const [itemsCopy, setItemsCopy] = useState(items);
 
    function getFiltration(): void {
@@ -65,7 +62,9 @@ function Cards({ items }: { items: Props }) {
          });
       });
       setItemsCopy(newItems);
+      console.log(items);
    }
+
    return (
       <>
          <section className={styles.cards}>
