@@ -1,3 +1,4 @@
+import ContactUs from "../Pages/Homepage/ContactUs/ContactUs";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 import Cards from "./Cards";
@@ -31,10 +32,11 @@ async function Catalog() {
          <div className="container">
             <Breadcrumbs />
             <h2 className={styles.catalog__title}>Каталог</h2>
-            <div className={styles.catalog__body}>
+            <div className={`${styles.catalog__body} 'catalog__body`}>
                <Cards items={data.data.products.data} />
             </div>
          </div>
+         <ContactUs />
       </div>
    );
 }

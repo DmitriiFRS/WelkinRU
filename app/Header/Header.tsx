@@ -11,8 +11,7 @@ const list = [
    {
       id: 0,
       name: "Каталог",
-      icon: arrow,
-      href: null,
+      href: "/Catalog",
    },
    {
       id: 1,
@@ -46,16 +45,13 @@ async function Header() {
             <Dropdown />
             <ul className={styles.header__list}>
                {list.map((el) => {
-                  if (el.icon) {
-                     return <CatalogMenu key={el.id} el={el} />;
-                  } else
-                     return (
-                        <li key={el.id} className={styles.header__item}>
-                           <Link className={styles.header__itemLink} href={el.href === null ? "/" : el.href}>
-                              {el.name}
-                           </Link>
-                        </li>
-                     );
+                  return (
+                     <li key={el.id} className={styles.header__item}>
+                        <Link className={styles.header__itemLink} href={el.href === null ? "/" : el.href}>
+                           {el.name}
+                        </Link>
+                     </li>
+                  );
                })}
             </ul>
          </nav>

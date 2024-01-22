@@ -13,9 +13,9 @@ type ItemType = {
 
 type Props = Array<ItemType>;
 
-function ContentInner({ items }: { items: Props }) {
+function ContentInner({ items, isTransition }: { items: Props; isTransition: boolean }) {
    return (
-      <ul className={styles.cards__body}>
+      <ul className={`${styles.cards__body} ${isTransition ? styles.cards__body__inTransition : ""}`}>
          {items.map((el, index) => {
             console.log(el.attributes.image.data.attributes.url);
             return (

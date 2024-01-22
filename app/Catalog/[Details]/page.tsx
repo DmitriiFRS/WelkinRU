@@ -58,7 +58,6 @@ async function Details({ params }: { params: { Details: string } }) {
       }
     }
    `);
-   console.log(data.data.products.data);
    return (
       <div className={styles.details}>
          <div className="container">

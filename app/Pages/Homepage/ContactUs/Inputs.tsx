@@ -6,7 +6,10 @@ import { useEffect, useState } from "react";
 import Popup from "./Popup";
 
 function Inputs() {
-   const scrollWidth = window.innerWidth - document.body.clientWidth;
+   let scrollWidth: null | number = null;
+   if (typeof window !== "undefined") {
+      scrollWidth = window.innerWidth - document.body.clientWidth;
+   }
    const [isPopupOpen, setPopupOpen] = useState(false);
    const [name, setName] = useState("");
    const [tel, setTel] = useState<string>("");

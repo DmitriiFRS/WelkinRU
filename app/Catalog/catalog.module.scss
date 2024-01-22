@@ -1,4 +1,6 @@
 .catalog {
+   animation-name: global-fade-in;
+   animation-duration: 1.2s;
    &__title {
       margin: 30px 0 0 0;
       font-size: 32px;
@@ -29,6 +31,11 @@
       flex-wrap: wrap;
       gap: 30px;
       margin: 17px 0 0 0;
+      transition: 0.5s;
+      opacity: 1;
+      &__inTransition {
+         opacity: 0;
+      }
    }
    &__item {
       display: flex;
@@ -193,6 +200,8 @@
 }
 
 .details {
+   animation-name: global-fade-in;
+   animation-duration: 1.2s;
    margin: 60px 0 0 0;
    &__main {
       display: flex;
@@ -333,5 +342,13 @@
    }
    100% {
       opacity: 0;
+   }
+}
+@keyframes global-fade-in {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
    }
 }

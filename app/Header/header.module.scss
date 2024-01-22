@@ -36,7 +36,6 @@
       }
       font-weight: 700;
       text-transform: uppercase;
-      cursor: pointer;
       height: 100%;
       padding: 20px 0;
       display: flex;
@@ -53,6 +52,11 @@
    }
    &__itemLink {
       color: inherit;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
    }
    &__tel {
       display: flex;
