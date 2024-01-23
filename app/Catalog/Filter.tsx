@@ -19,6 +19,9 @@ export type ButtonsInnerType = {
 export type ButtonsType = Array<ButtonsInnerType>;
 
 function Filter({ getFiltration, buttons }: { getFiltration: () => void; buttons: ButtonsType }) {
+   function reloadPage() {
+      window.location.href = window.location.href;
+   }
    return (
       <section className={styles.filter}>
          <div className={styles.filter__sortBtn}>
@@ -33,6 +36,9 @@ function Filter({ getFiltration, buttons }: { getFiltration: () => void; buttons
          <div className={styles.filter__acceptBody}>
             <button className={`${styles.filter__accept} btnBlack`} onClick={getFiltration}>
                <span>Применить</span>
+            </button>
+            <button onClick={reloadPage} className={`${styles.filter__accept} btnBlack`}>
+               <span>Сбросить</span>
             </button>
          </div>
       </section>
