@@ -9,7 +9,7 @@ function MobileBlock() {
    return (
       <>
          <Burger isActive={isActive} setActive={setActive} />
-         <MobileNav isActive={isActive} />
+         <MobileNav isActive={isActive} setActive={setActive} />
       </>
    );
 }

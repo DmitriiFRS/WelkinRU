@@ -17,7 +17,6 @@ function ContentInner({ items, isTransition }: { items: Props; isTransition: boo
    return (
       <ul className={`${styles.cards__body} ${isTransition ? styles.cards__body__inTransition : ""}`}>
          {items.map((el, index) => {
-            console.log(el.attributes.image.data.attributes.url);
             return (
                <li key={index} className={styles.cards__item}>
                   <Link
