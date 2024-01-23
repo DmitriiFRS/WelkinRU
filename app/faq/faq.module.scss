@@ -12,6 +12,12 @@
       gap: 90px 40px;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(3, 1fr);
+      @media (max-width: 1120px) {
+         grid-template-columns: 1fr;
+      }
+      @media (max-width: 550px) {
+         gap: 140px 40px;
+      }
    }
    &__itemBody {
       display: flex;
@@ -29,6 +35,9 @@
       min-height: 80px;
       height: 80px;
       overflow: hidden;
+      @media (max-width: 420px) {
+         height: 100px;
+      }
    }
    &__item {
       display: flex;
@@ -69,6 +78,15 @@
          height: 100%;
          z-index: 1;
          opacity: 1;
+         @media (max-width: 1120px) {
+            width: 100%;
+         }
+         @media (max-width: 550px) {
+            padding: 100px 20px 100px 20px;
+         }
+         @media (max-width: 420px) {
+            padding: 120px 20px 100px 20px;
+         }
       }
       &__title {
          font-weight: 300;
