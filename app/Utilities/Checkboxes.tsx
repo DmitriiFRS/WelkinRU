@@ -22,12 +22,6 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
       }
    }
 
-   useEffect(() => {
-      console.log(checkboxes);
-      console.log(chillerCheckboxes.array);
-      console.log(vrfCheckboxes.array);
-   }, [checkboxes, chillerCheckboxes, vrfCheckboxes]);
-
    return (
       <div className={styles.checkbox}>
          {id === 1 ? (
