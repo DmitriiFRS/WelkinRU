@@ -4,8 +4,6 @@ import logo from "../../public/svg/logo.svg";
 import Link from "next/link";
 import Dropdown from "./Dropdown";
 import { fetchGraphqlData } from "../Utilities/FetchData";
-import Burger from "./Burger";
-import MobileNav from "./MobileNav";
 import MobileBlock from "./Mobile/MobileBlock";
 
 export const list = [
@@ -37,6 +35,7 @@ async function Header() {
       }
     }
    `);
+   const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.header);
    return (
       <div className={`container ${styles.header}`}>
          <MobileBlock />
@@ -57,9 +56,9 @@ async function Header() {
                })}
             </ul>
          </nav>
-         <button className={styles.header__tel}>
+         <a href={"tel://" + decodedPhoneNumber} className={styles.header__tel}>
             <span>{data.data.phone.data.attributes.header}</span>
-         </button>
+         </a>
       </div>
    );
 }

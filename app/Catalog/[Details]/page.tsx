@@ -5,6 +5,7 @@ import ContactUs from "@/app/Pages/Homepage/ContactUs/ContactUs";
 import { fetchGraphqlData } from "@/app/Utilities/FetchData";
 import DetailsBody from "./DetailsBody";
 import Chars from "./Chars";
+import CatalogPDF from "./CatalogPDF";
 
 async function Details({ params }: { params: { Details: string } }) {
    const data = await fetchGraphqlData(`
@@ -56,13 +57,25 @@ async function Details({ params }: { params: { Details: string } }) {
           }
         }
       }
+      phone {
+        data {
+          attributes {
+            header
+          }
+        }
+      }
     }
    `);
    return (
       <div className={styles.details}>
          <div className="container">
             <Breadcrumbs />
-            <DetailsBody data={data.data.products.data} details={params.Details} />
+            <DetailsBody
+               data={data.data.products.data}
+               details={params.Details}
+               phone={data.data.phone.data.attributes.header}
+            />
+            <CatalogPDF />
             <Recommended data={data.data.recommended.data.attributes.produkties.data} />
          </div>
          <ContactUs />

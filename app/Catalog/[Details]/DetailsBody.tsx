@@ -27,9 +27,11 @@ export type DataType = {
 type Props = {
    data: Array<DataType>;
    details: string;
+   phone: string;
 };
 
-function DetailsBody({ data, details }: Props) {
+function DetailsBody({ data, details, phone }: Props) {
+   const decodedPhoneNumber = decodeURI(phone);
    const [item, setItem] = useState<DataType | null>(null);
    useEffect(() => {
       const newItem = data.filter((el: DataType) => {
@@ -58,9 +60,9 @@ function DetailsBody({ data, details }: Props) {
                            <span>{item.attributes.Cooling_Output}</span>
                         </div>
                      </div>
-                     <button className={`${styles.details__item__btn} btnYellow`}>
+                     <a href={"tel://" + decodedPhoneNumber} className={`${styles.details__item__btn} btnYellow`}>
                         <span>Узнать цену</span>
-                     </button>
+                     </a>
                   </div>
                </div>
                <div className={styles.details__titleBody}>
