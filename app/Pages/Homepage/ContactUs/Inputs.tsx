@@ -14,7 +14,6 @@ function Inputs() {
    const [nameIsDirty, setNameIsDirty] = useState(false);
    const [telIsDirty, setTelIsDirty] = useState(false);
    const [textIsDirty, setTextIsDirty] = useState(false);
-   const [flag, setFlag] = useState(false);
    const [name, setName] = useState("");
    const [tel, setTel] = useState<string>("");
    const [question, setQuestion] = useState("");
@@ -22,15 +21,12 @@ function Inputs() {
       if (!name || !tel || !question) {
          if (!name) {
             setNameIsDirty(true);
-            setFlag(true);
          }
          if (!tel) {
             setTelIsDirty(true);
-            setFlag(true);
          }
          if (!question) {
             setTextIsDirty(true);
-            setFlag(true);
          }
       } else {
          setPopupOpen(true);
