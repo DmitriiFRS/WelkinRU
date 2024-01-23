@@ -11,11 +11,33 @@ function Inputs() {
       scrollWidth = window.innerWidth - document.body.clientWidth;
    }
    const [isPopupOpen, setPopupOpen] = useState(false);
+   const [nameIsDirty, setNameIsDirty] = useState(false);
+   const [telIsDirty, setTelIsDirty] = useState(false);
+   const [textIsDirty, setTextIsDirty] = useState(false);
+   const [flag, setFlag] = useState(false);
    const [name, setName] = useState("");
    const [tel, setTel] = useState<string>("");
    const [question, setQuestion] = useState("");
    function throwData() {
-      setPopupOpen(true);
+      if (!name || !tel || !question) {
+         if (!name) {
+            setNameIsDirty(true);
+            setFlag(true);
+         }
+         if (!tel) {
+            setTelIsDirty(true);
+            setFlag(true);
+         }
+         if (!question) {
+            setTextIsDirty(true);
+            setFlag(true);
+         }
+      } else {
+         setPopupOpen(true);
+         setName("");
+         setTel("");
+         setQuestion("");
+      }
    }
 
    useEffect(() => {
@@ -33,30 +55,45 @@ function Inputs() {
       if (e.target.value.length > 12) return;
       setTel(e.target.value);
    }
+   function clearDirtyStatus() {
+      setNameIsDirty(false);
+      setTelIsDirty(false);
+      setTextIsDirty(false);
+   }
    return (
       <div className={styles.contactUs__inputsBody}>
          <input
+            onFocus={clearDirtyStatus}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={styles.contactUs__input}
+            className={`${styles.contactUs__input} ${nameIsDirty ? styles.contactUs__input__dirty : ""}`}
             placeholder="ваше имя"
             type="text"
          />
          <input
+            onFocus={clearDirtyStatus}
             value={tel}
             name="phone"
             onChange={(e) => changeTel(e)}
-            className={styles.contactUs__input}
+            className={`${styles.contactUs__input} ${telIsDirty ? styles.contactUs__input__dirty : ""}`}
             placeholder="ваш телефон"
             type="tel"
          />
          <textarea
+            onFocus={clearDirtyStatus}
             value={question}
             name="textarea"
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="ваш вопрос"
-            className={styles.contactUs__inputArea}
+            className={`${styles.contactUs__inputArea} ${textIsDirty ? styles.contactUs__inputArea__dirty : ""}`}
          ></textarea>
+         <div
+            className={`${styles.contactUs__dirtyField} ${
+               nameIsDirty || telIsDirty || textIsDirty ? styles.contactUs__dirtyField__active : ""
+            }`}
+         >
+            Заполните все поля
+         </div>
          <PushData throwData={throwData} />
          <Popup isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen} />
       </div>
