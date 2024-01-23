@@ -2,7 +2,6 @@ import ContactUs from "../Pages/Homepage/ContactUs/ContactUs";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 import Cards from "./Cards";
-import Filter from "./Filter";
 import styles from "./catalog.module.scss";
 
 async function Catalog() {

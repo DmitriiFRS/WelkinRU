@@ -5,7 +5,7 @@ import Content from "./Items/Content";
 import Filter, { ButtonsType } from "./Filter";
 import { useSelector } from "react-redux";
 import { RootState } from "../Redux/store";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type ItemType = {
    attributes: {
@@ -62,7 +62,6 @@ function Cards({ items }: { items: Props }) {
          });
       });
       setItemsCopy(newItems);
-      console.log(items);
    }
 
    return (
