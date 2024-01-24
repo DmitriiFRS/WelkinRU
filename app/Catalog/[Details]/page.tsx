@@ -4,7 +4,6 @@ import Recommended from "@/app/Pages/Homepage/Recommended";
 import ContactUs from "@/app/Pages/Homepage/ContactUs/ContactUs";
 import { fetchGraphqlData } from "@/app/Utilities/FetchData";
 import DetailsBody from "./DetailsBody";
-import Chars from "./Chars";
 import CatalogPDF from "./CatalogPDF";
 
 async function Details({ params }: { params: { Details: string } }) {
