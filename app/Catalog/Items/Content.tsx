@@ -11,24 +11,19 @@ type ItemType = {
    };
 };
 
-type Props = Array<ItemType>;
+type Props = {
+   items: Array<ItemType>;
+   paginate: (el: number) => void;
+   currentPage: number;
+   isTransition: boolean;
+};
 
-function Content({ items }: { items: Props }) {
-   const [currentPage, setCurrentPage] = useState(1);
-   const [isTransition, setTransition] = useState(false);
+function Content({ items, paginate, currentPage, isTransition }: Props) {
    const itemsPerPage = 9;
    const lastItemIndex = currentPage * itemsPerPage;
    const firstItemIndex = lastItemIndex - itemsPerPage;
    const currentItems = items.slice(firstItemIndex, lastItemIndex);
-   function paginate(pageNumber: number) {
-      if (isTransition) return;
-      setTransition(true);
-      setTimeout(() => {
-         window.scrollTo({ top: 0 });
-         setTransition(false);
-         setCurrentPage(pageNumber);
-      }, 500);
-   }
+
    return (
       <>
          <ContentInner items={currentItems} isTransition={isTransition} />
