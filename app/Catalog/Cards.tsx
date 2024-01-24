@@ -3,9 +3,11 @@
 import styles from "./catalog.module.scss";
 import Content from "./Items/Content";
 import Filter, { ButtonsType } from "./Filter";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { toggleEquipCheckbox, triggerEquipCheckbox } from "../Redux/main.slice";
 
 type ItemType = {
    attributes: {
@@ -45,8 +47,37 @@ function Cards({ items }: { items: Props }) {
    const chillerCheckboxes = useSelector((state: RootState) => state.mainReducer.chillerCheckboxes);
    const vrfCheckboxes = useSelector((state: RootState) => state.mainReducer.vrfCheckboxes);
    const [itemsCopy, setItemsCopy] = useState(items);
+   const dispatch = useDispatch();
+   const params = useSearchParams();
+   const [trigger, setTrigger] = useState(false);
+
+   useEffect(() => {
+      const queryParam = params.get("name");
+      if (queryParam) {
+         switch (queryParam) {
+            case "fancoil":
+               dispatch(triggerEquipCheckbox(0));
+               break;
+            case "vrf":
+               dispatch(triggerEquipCheckbox(1));
+               break;
+            case "ahu":
+               dispatch(triggerEquipCheckbox(2));
+               break;
+            case "rooftop":
+               dispatch(triggerEquipCheckbox(3));
+               break;
+         }
+         setTrigger(!trigger);
+      }
+   }, [dispatch]);
+
+   useEffect(() => {
+      getFiltration();
+   }, [trigger]);
 
    function getFiltration(): void {
+      console.log(checkboxes);
       const filterArr: Array<Array<string>> = [[], [], []];
       const newItems: Array<any> = [];
       checkboxes.forEach((el, index) => {
@@ -107,7 +138,6 @@ function Cards({ items }: { items: Props }) {
             });
          });
       }
-      console.log(filterArr);
       setItemsCopy(newItems);
    }
 

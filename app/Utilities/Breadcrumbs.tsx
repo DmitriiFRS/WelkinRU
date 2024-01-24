@@ -6,9 +6,6 @@ import { useEffect } from "react";
 
 function Breadcrumbs() {
    const router = usePathname();
-   useEffect(() => {
-      console.log(router.split("/"));
-   }, []);
 
    return (
       <div className={styles.breadcrumbs}>

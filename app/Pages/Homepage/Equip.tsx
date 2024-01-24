@@ -56,6 +56,7 @@ function Equip() {
                <Link
                   href={{
                      pathname: "/Catalog",
+                     query: { name: "ahu" },
                   }}
                   className={`${styles.equip__item1} ${styles.equip__items}`}
                >
@@ -67,6 +68,7 @@ function Equip() {
                <Link
                   href={{
                      pathname: "/Catalog",
+                     query: { name: "rooftop" },
                   }}
                   className={`${styles.equip__item2} ${styles.equip__items}`}
                >
@@ -79,6 +81,7 @@ function Equip() {
                   <Link
                      href={{
                         pathname: "/Catalog",
+                        query: { name: "vrf" },
                      }}
                      className={`${styles.equip__item3__subitem1} ${styles.equip__items}`}
                   >
@@ -90,6 +93,7 @@ function Equip() {
                   <Link
                      href={{
                         pathname: "Catalog",
+                        query: { name: "fancoil" },
                      }}
                      className={`${styles.equip__item3__subitem2} ${styles.equip__items}`}
                   >

@@ -81,46 +81,6 @@ async function DetailsBody({ data, details, phone }: Props) {
                );
             }
          })}
-         {/* item && (
-            <div className={styles.details}>
-               <div className={styles.details__main}>
-                  <div className={`${styles.cards__item__imgBlock} ${styles.cards__item__imgBlock__item}`}>
-                     <div className={`${styles.cards__item__imgBody} ${styles.cards__item__imgBody__item}`}>
-                        <Image src={item.attributes.image.data.attributes.url} alt="welkin" fill objectFit="contain" />
-                     </div>
-                  </div>
-                  <div className={styles.details__mainParamsBody}>
-                     <div className={styles.details__name}>{item.attributes.name}</div>
-                     <div className={styles.details__mainParams}>
-                        <div className={styles.details__mainParam}>
-                           Теплопроизводительность, Квт:<span>{item.attributes.Heat_Output}</span>
-                        </div>
-                        <div className={styles.details__mainParam}>
-                           Холодопроизводительность, Квт:
-                           <span>{item.attributes.Cooling_Output}</span>
-                        </div>
-                     </div>
-                     <a href={"tel://" + decodedPhoneNumber} className={`${styles.details__item__btn} btnYellow`}>
-                        <span>Узнать цену</span>
-                     </a>
-                  </div>
-               </div>
-               <div className={styles.details__titleBody}>
-                  <h3 className={styles.details__title}>Описание</h3>
-                  <p className={styles.details__subtitle}>
-                     {item.attributes.description1 && item.attributes.description1}
-                  </p>
-                  <p className={styles.details__subtitle}>
-                     {item.attributes.description2 && item.attributes.description2}
-                  </p>
-                  <p className={styles.details__subtitle}>
-                     {item.attributes.description3 && item.attributes.description3}
-                  </p>
-               </div>
-               <div className={styles.details__params}></div>
-               <div className={styles.details__docs}></div>
-            </div>
-         ) */}
       </>
    );
 }

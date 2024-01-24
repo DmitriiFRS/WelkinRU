@@ -26,9 +26,13 @@ export const mainSlice = createSlice({
          state.isHeaderDropdownActive = false;
       },
       toggleEquipCheckbox: (state, action: PayloadAction<number>) => {
-         let newArray = [...state.equipCheckboxes];
-         newArray[action.payload] = !newArray[action.payload];
-         state.equipCheckboxes = newArray;
+         state.equipCheckboxes[action.payload] = !state.equipCheckboxes[action.payload];
+      },
+      triggerEquipCheckbox: (state, action: PayloadAction<number>) => {
+         state.equipCheckboxes.forEach((el, index) => {
+            state.equipCheckboxes[index] = false;
+         });
+         state.equipCheckboxes[action.payload] = true;
       },
       toggleChillerCheckboxes: (state, action: PayloadAction<number>) => {
          let newArray = [...state.chillerCheckboxes];
@@ -46,6 +50,7 @@ export const {
    openHeaderDropDown,
    closeHeaderDropDown,
    toggleEquipCheckbox,
+   triggerEquipCheckbox,
    toggleChillerCheckboxes,
    toggleVrfCheckboxes,
 } = mainSlice.actions;
