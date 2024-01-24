@@ -10,12 +10,12 @@ export const list = [
    {
       id: 0,
       name: "Каталог",
-      href: "/Catalog",
+      href: "/catalog",
    },
    {
       id: 1,
       name: "О компании",
-      href: "/About",
+      href: "/about",
    },
    {
       id: 2,

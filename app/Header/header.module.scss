@@ -93,6 +93,10 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+         color: #fec300;
+      }
       &__mobile {
          color: inherit;
       }

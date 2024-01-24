@@ -20,7 +20,7 @@ function About({ data }: Props) {
             <div className={styles.about__titleBody}>
                <h2 className={styles.about__title}>{data.title}</h2>
                <p className={styles.about__subtitle}>{data.description}</p>
-               <Link href={"/About"} className={styles.about__btn}>
+               <Link href={"/about"} className={styles.about__btn}>
                   Подробнее
                </Link>
             </div>

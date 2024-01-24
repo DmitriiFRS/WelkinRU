@@ -20,7 +20,7 @@ export type ButtonsType = Array<ButtonsInnerType>;
 
 function Filter({ getFiltration, buttons }: { getFiltration: () => void; buttons: ButtonsType }) {
    function reloadPage() {
-      window.location.href = "/Catalog";
+      window.location.href = "/catalog";
    }
    return (
       <section className={styles.filter}>

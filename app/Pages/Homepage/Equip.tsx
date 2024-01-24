@@ -48,14 +48,14 @@ function Equip() {
          <div className="container">
             <div className={styles.equip__titleBody}>
                <h2 className={styles.equip__title}>Наше оборудование</h2>
-               <Link href="/Catalog">
+               <Link href="/catalog">
                   <button className={styles.equip__catalog}>весь каталог</button>
                </Link>
             </div>
             <div className={styles.equip__itemsBody}>
                <Link
                   href={{
-                     pathname: "/Catalog",
+                     pathname: "/catalog",
                      query: { name: "ahu" },
                   }}
                   className={`${styles.equip__item1} ${styles.equip__items}`}
@@ -67,7 +67,7 @@ function Equip() {
                </Link>
                <Link
                   href={{
-                     pathname: "/Catalog",
+                     pathname: "/catalog",
                      query: { name: "rooftop" },
                   }}
                   className={`${styles.equip__item2} ${styles.equip__items}`}
@@ -80,7 +80,7 @@ function Equip() {
                <div className={styles.equip__item3}>
                   <Link
                      href={{
-                        pathname: "/Catalog",
+                        pathname: "/catalog",
                         query: { name: "vrf" },
                      }}
                      className={`${styles.equip__item3__subitem1} ${styles.equip__items}`}
@@ -92,7 +92,7 @@ function Equip() {
                   </Link>
                   <Link
                      href={{
-                        pathname: "Catalog",
+                        pathname: "catalog",
                         query: { name: "fancoil" },
                      }}
                      className={`${styles.equip__item3__subitem2} ${styles.equip__items}`}

@@ -5,9 +5,9 @@ import Content from "./Items/Content";
 import Filter, { ButtonsType } from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/store";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { toggleEquipCheckbox, triggerEquipCheckbox } from "../Redux/main.slice";
+import { triggerEquipCheckbox } from "../Redux/main.slice";
 
 type ItemType = {
    attributes: {
@@ -55,6 +55,7 @@ function Cards({ items }: { items: Props }) {
 
    function paginate(pageNumber: number) {
       if (isTransition) return;
+      if (pageNumber === currentPage) return;
       setTransition(true);
       setTimeout(() => {
          window.scrollTo({ top: 0 });

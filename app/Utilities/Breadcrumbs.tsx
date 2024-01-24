@@ -7,6 +7,10 @@ import { useEffect } from "react";
 function Breadcrumbs() {
    const router = usePathname();
 
+   useEffect(() => {
+      console.log(router.split("/"));
+   }, []);
+
    return (
       <div className={styles.breadcrumbs}>
          <Link className={styles.breadcrumbs__link} href={"/"}>
@@ -14,6 +18,9 @@ function Breadcrumbs() {
          </Link>
          <span>{" / "}</span>
          {router.split("/").map((el, index) => {
+            if (el === "Catalog") el = "Каталог";
+            if (el === "faq") el = "Вопрос-ответ";
+            if (el === "About") el = "О компании";
             return (
                <Link className={styles.breadcrumbs__link} key={index} href={"/" + el}>
                   {index > 1 ? " / " + el : el}

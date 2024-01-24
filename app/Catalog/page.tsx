@@ -4,7 +4,7 @@ import { fetchGraphqlData } from "../Utilities/FetchData";
 import Cards from "./Cards";
 import styles from "./catalog.module.scss";
 
-async function Catalog() {
+async function catalog() {
    const data = await fetchGraphqlData(`
    query {
       products {
@@ -39,4 +39,4 @@ async function Catalog() {
       </div>
    );
 }
-export default Catalog;
+export default catalog;
