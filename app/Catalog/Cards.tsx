@@ -5,7 +5,7 @@ import Content from "./Items/Content";
 import Filter, { ButtonsType } from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/store";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { toggleEquipCheckbox, triggerEquipCheckbox } from "../Redux/main.slice";
 
@@ -77,7 +77,7 @@ function Cards({ items }: { items: Props }) {
    }, [trigger]);
 
    function getFiltration(): void {
-      console.log(checkboxes);
+      if (checkboxes.every((el) => !el)) return;
       const filterArr: Array<Array<string>> = [[], [], []];
       const newItems: Array<any> = [];
       checkboxes.forEach((el, index) => {
