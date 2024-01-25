@@ -1,0 +1,111 @@
+.about {
+   animation-name: global-fade-in;
+   animation-duration: 1.2s;
+   &__main {
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      margin: 30px auto 0 auto;
+      gap: 120px;
+      @media (max-width: 780px) {
+         gap: 30px;
+      }
+      @media (max-width: 660px) {
+         flex-direction: column;
+         align-items: center;
+      }
+   }
+   &__imgBody {
+      flex: 0 1 33.46%;
+      position: relative;
+      max-width: 261px;
+      aspect-ratio: 261/373;
+      @media (max-width: 690px) {
+         flex: 0 1 50%;
+      }
+      @media (max-width: 690px) {
+         height: 373px;
+         width: 100%;
+      }
+   }
+   &__titleBody {
+      flex: 0 1 66.54%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media (max-width: 690px) {
+         flex: 0 1 50%;
+      }
+   }
+   &__title {
+      font-size: 32px;
+      font-weight: 700;
+   }
+   &__subtitle {
+      font-weight: 350;
+      line-height: 140%;
+      margin: 30px 0 0 0;
+      font-weight: 300;
+   }
+   &__cols {
+      margin: 158px 0 0 0;
+      @media (max-width: 550px) {
+         margin: 100px 0 0 0;
+      }
+      &__title {
+         font-size: 32px;
+         font-weight: 700;
+      }
+      &__colsBody {
+         margin: 60px 0 0 0;
+         display: flex;
+         gap: 30px;
+         @media (max-width: 800px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+         }
+         @media (max-width: 450px) {
+            gap: 10px;
+         }
+         @media (max-width: 400px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 20px;
+         }
+      }
+      &__item {
+         flex: 0 1 25%;
+         background: #fdf5dc;
+         height: 113px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         border-radius: 20px;
+         @media (max-width: 1150px) {
+            padding: 15px 8px;
+            text-align: center;
+            gap: 10px;
+         }
+         & > :first-child {
+            font-size: 24px;
+            font-weight: 700;
+            @media (max-width: 1150px) {
+               flex: 1 1 auto;
+            }
+         }
+         & > :last-child {
+            font-weight: 300;
+         }
+      }
+   }
+}
+@keyframes global-fade-in {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
