@@ -12,7 +12,7 @@ type Props = {
 
 function Col({ el, id }: { el: string; id: number }) {
    return (
-      <Link href={"faq/"} className={styles.faq__item}>
+      <Link href={"faq/" + id} className={styles.faq__item}>
          <div className={styles.faq__itemBody}>
             <div className={styles.faq__itemTitle}>{el}</div>
          </div>
