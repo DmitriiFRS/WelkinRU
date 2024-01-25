@@ -30,6 +30,28 @@
       }
    }
 }
+.answer {
+   &__body {
+      margin: 30px 0 0 0;
+   }
+   &__title {
+      font-size: 32px;
+      font-weight: 700;
+   }
+   &__item {
+      margin: 30px 0 0 0;
+   }
+   &__question {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+   }
+   &__answer {
+      &:not(:last-child) {
+         margin: 0 0 20px 0;
+      }
+   }
+}
 
 @keyframes global-fade-in {
    0% {

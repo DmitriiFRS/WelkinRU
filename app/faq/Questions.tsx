@@ -1,44 +1,22 @@
 import styles from "./faq.module.scss";
-import Cols from "./Cols";
+import Col from "./Col";
 
-const cols = [
-   {
-      id: 0,
-      title: "Как сменить город для осуществления покупок?",
-      answer: "",
-   },
-   {
-      id: 1,
-      title: "Почему недоступен самовывоз выбранного товара?",
-      answer: "",
-   },
-   {
-      id: 2,
-      title: "Каковы преимущества использования чиллеров Carrier по сравнению с другими брендами и моделями чиллеров?",
-      answer: "",
-   },
-   {
-      id: 3,
-      title: "Какие технологии используются в чиллерах Carrier для обеспечения эффективности?",
-      answer: "",
-   },
-   {
-      id: 4,
-      title: "Почему недоступна доставка выбранного товара?",
-      answer: "",
-   },
-   {
-      id: 5,
-      title: "Какова продолжительность жизни чиллеров Carrier и какие факторы могут повлиять на их долговечность?",
-      answer: "",
-   },
-];
+type DataType = {
+   id: number;
+   attributes: {
+      question: string;
+   };
+};
 
-function Questions() {
+function Questions({ data }: { data: Array<DataType> }) {
    return (
       <section className={styles.faq__questions}>
          <h2 className={styles.faq__title}>Часто задаваемые вопросы</h2>
-         <Cols cols={cols} />
+         <ul className={styles.faq__cols}>
+            {data.map((el) => {
+               return <Col key={el.id} el={el.attributes.question} id={el.id} />;
+            })}
+         </ul>
       </section>
    );
 }
