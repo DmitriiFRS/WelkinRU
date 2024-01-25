@@ -1,8 +1,6 @@
+import Link from "next/link";
 import styles from "./faq.module.scss";
-import Image from "next/image";
-import arrow from "../../public/img/faq/arrow.svg";
 import { useState } from "react";
-import Answer from "./Answer";
 
 type ColsInner = {
    id: number;
@@ -12,17 +10,12 @@ type ColsInner = {
 
 type ColsProps = Array<ColsInner>;
 function Col({ cols, el }: { cols: ColsProps; el: any }) {
-   const [isActive, setActive] = useState(false);
    return (
-      <li key={el.id} className={styles.faq__item} onClick={() => setActive(!isActive)}>
+      <Link href={"/"} key={el.id} className={styles.faq__item}>
          <div className={styles.faq__itemBody}>
             <div className={styles.faq__itemTitle}>{el.title}</div>
-            <div className={`${styles.faq__iconBody} ${isActive ? styles.faq__iconBody__active : ""}`}>
-               <Image src={arrow} alt="arrow" fill />
-            </div>
          </div>
-         <Answer answer={el.answer} isActive={isActive} />
-      </li>
+      </Link>
    );
 }
 export default Col;
