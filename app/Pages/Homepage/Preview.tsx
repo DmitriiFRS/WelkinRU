@@ -15,7 +15,7 @@ async function Preview({ data }: any) {
             </div>
             <div className={styles.preview__imagesBody}>
                <div className={styles.preview__imgBody}>
-                  <Image src={data.data.attributes.image.data.attributes.url} alt="vrf-v6" fill quality={100} />
+                  <Image src={data.data.attributes.image.data.attributes.url} alt="vrf-v6" fill />
                </div>
             </div>
          </div>
