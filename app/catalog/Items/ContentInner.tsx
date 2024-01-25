@@ -20,7 +20,7 @@ function ContentInner({ items, isTransition }: { items: Props; isTransition: boo
             return (
                <li key={index} className={styles.cards__item}>
                   <Link
-                     href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
+                     href={`/catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
                      className={styles.cards__item__imgBlock}
                   >
                      <div className={styles.cards__item__imgBody}>
@@ -32,7 +32,7 @@ function ContentInner({ items, isTransition }: { items: Props; isTransition: boo
                      <div className={styles.cards__item__type}>{el.attributes.type}</div>
                   </div>
                   <Link
-                     href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
+                     href={`/catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
                      className={`${styles.cards__item__btn} btnYellow`}
                   >
                      <span>Узнать цену</span>

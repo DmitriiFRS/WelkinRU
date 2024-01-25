@@ -1,9 +1,22 @@
 .breadcrumbs {
    margin: 80px 0 0 0;
    color: #828282;
+   display: flex;
    &__link {
       color: inherit;
       transition: 0.2s;
+      display: flex;
+      & div {
+         &:hover {
+            color: #fec300;
+         }
+      }
+      & span {
+         padding: 0 5px;
+      }
+   }
+   &__linkInner {
+      color: inherit;
       &:hover {
          color: #fec300;
       }
