@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../Redux/store";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { triggerEquipCheckbox } from "../Redux/main.slice";
+import { setInitialCheckboxes, triggerEquipCheckbox } from "../Redux/main.slice";
 
 type ItemType = {
    attributes: {
@@ -82,12 +82,16 @@ function Cards({ items }: { items: Props }) {
                break;
          }
          setTrigger(!trigger);
+      } else {
+         dispatch(setInitialCheckboxes());
       }
    }, [dispatch]);
 
    useEffect(() => {
       getFiltration();
    }, [trigger]);
+
+   useEffect(() => {}, []);
 
    function getFiltration(): void {
       if (checkboxes.every((el) => !el)) return;

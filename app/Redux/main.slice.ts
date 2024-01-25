@@ -34,6 +34,11 @@ export const mainSlice = createSlice({
          });
          state.equipCheckboxes[action.payload] = true;
       },
+      setInitialCheckboxes: (state) => {
+         state.equipCheckboxes.forEach((el, index) => {
+            state.equipCheckboxes[index] = false;
+         });
+      },
       toggleChillerCheckboxes: (state, action: PayloadAction<number>) => {
          let newArray = [...state.chillerCheckboxes];
          newArray[action.payload] = !newArray[action.payload];
@@ -53,5 +58,6 @@ export const {
    triggerEquipCheckbox,
    toggleChillerCheckboxes,
    toggleVrfCheckboxes,
+   setInitialCheckboxes,
 } = mainSlice.actions;
 export default mainSlice.reducer;
