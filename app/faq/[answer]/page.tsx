@@ -21,7 +21,6 @@ async function page({ params }: { params: { answer: string } }) {
       }
     }
    `);
-   console.log(data.data.answers.data);
    return (
       <div className={styles.answer}>
          <div className="container">

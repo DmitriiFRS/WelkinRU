@@ -9,9 +9,6 @@ function Breadcrumbs() {
    const paths = usePathname();
    const pathNames = paths.split("/").filter((path) => path);
    const titleRouter = ["Главная"];
-   useEffect(() => {
-      console.log(pathNames);
-   }, []);
    return (
       <div className={styles.breadcrumbs}>
          {paths.split("/").map((el, index) => {
