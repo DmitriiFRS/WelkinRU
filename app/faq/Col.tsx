@@ -1,15 +1,6 @@
 import Link from "next/link";
 import styles from "./faq.module.scss";
 
-type Props = {
-   el: {
-      id: number;
-      attributes: {
-         question: string;
-      };
-   };
-};
-
 function Col({ el, id }: { el: string; id: number }) {
    return (
       <Link href={"faq/" + id} className={styles.faq__item}>
