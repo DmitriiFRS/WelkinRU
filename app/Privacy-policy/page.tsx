@@ -1,6 +1,12 @@
+import { Metadata } from "next/types";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import TextBlock from "./TextBlock";
 import styles from "./privacy.module.scss";
+
+export const metadata: Metadata = {
+   title: "Политика конфиденциальности",
+   description: "Политика конфиденциальности Welkin",
+};
 
 type TypeSubtitlesInner = {
    main: string;

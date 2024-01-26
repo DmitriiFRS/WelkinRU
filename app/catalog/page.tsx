@@ -1,8 +1,14 @@
+import { Metadata } from "next/types";
 import ContactUs from "../Pages/Homepage/ContactUs/ContactUs";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 import Cards from "./Cards";
 import styles from "./catalog.module.scss";
+
+export const metadata: Metadata = {
+   title: "Каталог",
+   description: "Каталог Welkin",
+};
 
 async function catalog() {
    const data = await fetchGraphqlData(`

@@ -3,8 +3,37 @@ import styles from "../catalog.module.scss";
 import Recommended from "@/app/Pages/Homepage/Recommended";
 import ContactUs from "@/app/Pages/Homepage/ContactUs/ContactUs";
 import { fetchGraphqlData } from "@/app/Utilities/FetchData";
-import DetailsBody from "./DetailsBody";
+import DetailsBody, { DataType } from "./DetailsBody";
 import CatalogPDF from "./CatalogPDF";
+
+type MetadataType = {
+   attributes: {
+      name: string;
+      type: string;
+      reference: string;
+   };
+};
+
+export async function generateMetadata({ params }: { params: { Details: string } }) {
+   const item = await fetchGraphqlData(`
+    query {
+      products {
+        data {
+          attributes {
+            name
+            type
+            reference
+          }
+        }
+      }
+    }
+  `);
+   const searchItem = item.data.products.data.find((el: MetadataType) => el.attributes.reference === params.Details);
+   return {
+      title: searchItem.attributes.name,
+      description: searchItem.attributes.type,
+   };
+}
 
 async function Details({ params }: { params: { Details: string } }) {
    const data = await fetchGraphqlData(`
@@ -65,15 +94,16 @@ async function Details({ params }: { params: { Details: string } }) {
       }
     }
    `);
+   const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.header);
    return (
       <div className={styles.details}>
          <div className="container">
             <Breadcrumbs />
-            <DetailsBody
-               data={data.data.products.data}
-               details={params.Details}
-               phone={data.data.phone.data.attributes.header}
-            />
+            {data.data.products.data.map((el: DataType, index: number) => {
+               if (el.attributes.reference.replace(/\s|\//g, "_") === params.Details) {
+                  return <DetailsBody key={index} el={el} decodedPhoneNumber={decodedPhoneNumber} />;
+               }
+            })}
             <CatalogPDF />
             <Recommended data={data.data.recommended.data.attributes.produkties.data} />
          </div>

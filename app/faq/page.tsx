@@ -4,6 +4,11 @@ import { fetchGraphqlData } from "../Utilities/FetchData";
 import Questions from "./Questions";
 import styles from "./faq.module.scss";
 
+export const metadata = {
+   title: "Вопрос-ответ",
+   description: "Часто задаваемые вопросы",
+};
+
 async function Faq() {
    const data = await fetchGraphqlData(`
    query {

@@ -35,7 +35,7 @@ async function Recommended({ data }: { data: Array<Products> }) {
                {data.map((el: RecommendedType) => {
                   return (
                      <li key={el.id} className={styles.recommended__item}>
-                        <Link href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}>
+                        <Link href={`/catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}>
                            <div className={styles.recommended__cardBody}>
                               <div className={styles.recommended__imgBody}>
                                  <Image
