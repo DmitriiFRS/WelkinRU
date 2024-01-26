@@ -43,7 +43,6 @@ async function Header() {
             <Image src={logo} alt="welkin" fill />
          </Link>
          <nav className={styles.header__nav}>
-            <Dropdown />
             <ul className={styles.header__list}>
                {list.map((el) => {
                   return (
