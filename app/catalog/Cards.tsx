@@ -82,19 +82,20 @@ function Cards({ items }: { items: Props }) {
                break;
          }
          setTrigger(!trigger);
-      } else {
-         dispatch(setInitialCheckboxes());
+         console.log("if");
       }
    }, [dispatch]);
 
    useEffect(() => {
-      getFiltration();
+      getFiltration(undefined);
    }, [trigger]);
 
-   useEffect(() => {}, []);
-
-   function getFiltration(): void {
+   function getFiltration(e: any): void {
       if (checkboxes.every((el) => !el)) return;
+      if (!params.get("name") && e === undefined) {
+         dispatch(setInitialCheckboxes());
+         return;
+      }
       setTimeout(() => {
          const filterArr: Array<Array<string>> = [[], [], []];
          const newItems: Array<any> = [];

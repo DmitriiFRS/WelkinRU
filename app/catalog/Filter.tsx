@@ -2,6 +2,7 @@ import styles from "./catalog.module.scss";
 import filterIcon from "../../public/img/catalog/filterIcon.png";
 import Image from "next/image";
 import DropdownMenu from "./DropdownMenu";
+import { useRef } from "react";
 
 export type ButtonsInnerType = {
    id: number;
@@ -18,7 +19,8 @@ export type ButtonsInnerType = {
 
 export type ButtonsType = Array<ButtonsInnerType>;
 
-function Filter({ getFiltration, buttons }: { getFiltration: () => void; buttons: ButtonsType }) {
+function Filter({ getFiltration, buttons }: { getFiltration: (e: any) => void; buttons: ButtonsType }) {
+   const btnRef = useRef(null);
    function reloadPage() {
       window.location.href = "/catalog";
    }
@@ -34,7 +36,7 @@ function Filter({ getFiltration, buttons }: { getFiltration: () => void; buttons
             })}
          </div>
          <div className={styles.filter__acceptBody}>
-            <button className={`${styles.filter__accept} btnBlack`} onClick={getFiltration}>
+            <button ref={btnRef} className={`${styles.filter__accept} btnBlack`} onClick={(e) => getFiltration(e)}>
                <span>Применить</span>
             </button>
             <button onClick={reloadPage} className={`${styles.filter__accept} btnBlack`}>

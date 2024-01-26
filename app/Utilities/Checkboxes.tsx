@@ -36,6 +36,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                      >
                         <input
                            checked={checkboxes[index]}
+                           readOnly
                            type="checkbox"
                            id={(id + index).toString()}
                            className={styles.checkbox__checkbox}
