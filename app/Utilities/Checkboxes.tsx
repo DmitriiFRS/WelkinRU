@@ -1,7 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./utilities.module.scss";
 import { RootState } from "../Redux/store";
-import { toggleChillerCheckboxes, toggleEquipCheckbox, toggleVrfCheckboxes } from "../Redux/main.slice";
+import {
+   toggleChillerCheckboxes,
+   toggleChillerInitial,
+   toggleEquipCheckbox,
+   toggleVrfCheckboxes,
+} from "../Redux/main.slice";
 import { useEffect } from "react";
 
 function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
@@ -12,6 +17,8 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
 
    function toggleCheckbox(idx: number) {
       dispatch(toggleEquipCheckbox(idx));
+      dispatch(toggleChillerInitial());
+      console.log(chillerCheckboxes);
    }
 
    function toggleSubCheckboxes(idx: number) {
@@ -46,6 +53,29 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                   );
                })}
             </>
+         ) : id === 2000 ? (
+            checkbox && (
+               <>
+                  {checkbox.map((el, index) => {
+                     return (
+                        <label
+                           onClick={() => toggleSubCheckboxes(index)}
+                           key={index}
+                           htmlFor={(id + index).toString()}
+                           className={styles.checkbox__item}
+                        >
+                           <input
+                              checked={chillerCheckboxes[index]}
+                              type="checkbox"
+                              id={(id + index).toString()}
+                              className={styles.checkbox__checkbox}
+                           />
+                           <span className={styles.checkbox__name}>{el}</span>
+                        </label>
+                     );
+                  })}
+               </>
+            )
          ) : (
             checkbox && (
                <>
@@ -57,7 +87,12 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                            htmlFor={(id + index).toString()}
                            className={styles.checkbox__item}
                         >
-                           <input type="checkbox" id={(id + index).toString()} className={styles.checkbox__checkbox} />
+                           <input
+                              checked={vrfCheckboxes[index]}
+                              type="checkbox"
+                              id={(id + index).toString()}
+                              className={styles.checkbox__checkbox}
+                           />
                            <span className={styles.checkbox__name}>{el}</span>
                         </label>
                      );
