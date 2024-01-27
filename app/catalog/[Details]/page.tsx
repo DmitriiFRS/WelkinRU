@@ -28,7 +28,9 @@ export async function generateMetadata({ params }: { params: { Details: string }
       }
     }
   `);
-   const searchItem = item.data.products.data.find((el: MetadataType) => el.attributes.reference === params.Details);
+   const searchItem = item.data.products.data.find(
+      (el: MetadataType) => el.attributes.reference.replace(/\s|\//g, "_") === params.Details
+   );
    return {
       title: searchItem.attributes.name,
       description: searchItem.attributes.type,

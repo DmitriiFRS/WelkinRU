@@ -56,8 +56,9 @@ function Inputs() {
       setTelIsDirty(false);
       setTextIsDirty(false);
    }
+   function handleSubmit() {}
    return (
-      <div className={styles.contactUs__inputsBody}>
+      <form method="post" onSubmit={handleSubmit} className={styles.contactUs__inputsBody}>
          <input
             onFocus={clearDirtyStatus}
             value={name}
@@ -92,7 +93,7 @@ function Inputs() {
          </div>
          <PushData throwData={throwData} />
          <Popup isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen} />
-      </div>
+      </form>
    );
 }
 export default Inputs;
