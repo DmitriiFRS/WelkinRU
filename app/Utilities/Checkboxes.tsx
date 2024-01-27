@@ -6,6 +6,7 @@ import {
    toggleChillerInitial,
    toggleEquipCheckbox,
    toggleVrfCheckboxes,
+   toggleVrfInitial,
 } from "../Redux/main.slice";
 import { useEffect } from "react";
 
@@ -17,9 +18,14 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
 
    function toggleCheckbox(idx: number) {
       dispatch(toggleEquipCheckbox(idx));
-      dispatch(toggleChillerInitial());
-      console.log(chillerCheckboxes);
    }
+   useEffect(() => {
+      if (!checkboxes[0]) {
+         dispatch(toggleChillerInitial());
+      } else if (!checkboxes[1]) {
+         dispatch(toggleVrfInitial());
+      }
+   }, [checkboxes]);
 
    function toggleSubCheckboxes(idx: number) {
       if (id === 2000) {

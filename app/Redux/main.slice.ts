@@ -45,12 +45,15 @@ export const mainSlice = createSlice({
          state.chillerCheckboxes = newArray;
       },
       toggleChillerInitial: (state) => {
-         state.chillerCheckboxes = state.chillerCheckboxes.map((el) => false);
+         state.chillerCheckboxes = state.chillerCheckboxes.map(() => false);
       },
       toggleVrfCheckboxes: (state, action: PayloadAction<number>) => {
          let newArray = [...state.vrfCheckboxes];
          newArray[action.payload] = !newArray[action.payload];
          state.vrfCheckboxes = newArray;
+      },
+      toggleVrfInitial: (state) => {
+         state.vrfCheckboxes = state.vrfCheckboxes.map(() => false);
       },
    },
 });
@@ -62,6 +65,7 @@ export const {
    toggleChillerCheckboxes,
    toggleChillerInitial,
    toggleVrfCheckboxes,
+   toggleVrfInitial,
    setInitialCheckboxes,
 } = mainSlice.actions;
 export default mainSlice.reducer;
