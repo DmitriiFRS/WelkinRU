@@ -1,6 +1,6 @@
-import { useState } from "react";
 import Pagination from "../Pagination";
 import ContentInner from "./ContentInner";
+import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 
 type ItemType = {
    attributes: {
@@ -19,7 +19,8 @@ type Props = {
 };
 
 function Content({ items, paginate, currentPage, isTransition }: Props) {
-   const itemsPerPage = 9;
+   const media = useMediaQuery(1283);
+   const itemsPerPage = media ? 8 : 9;
    const lastItemIndex = currentPage * itemsPerPage;
    const firstItemIndex = lastItemIndex - itemsPerPage;
    const currentItems = items.slice(firstItemIndex, lastItemIndex);
