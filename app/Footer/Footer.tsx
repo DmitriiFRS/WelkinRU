@@ -56,8 +56,6 @@ async function Footer() {
                <h3 className={styles.footer__cols__title}>Соц сети</h3>
                <ul className={styles.footer__cols__list}>
                   <li className={styles.footer__cols__item}>Telegram</li>
-                  <li className={styles.footer__cols__item}>Instagram</li>
-                  <li className={styles.footer__cols__item}>Facebook</li>
                </ul>
             </div>
          </div>
