@@ -50,7 +50,7 @@ async function Recommended({ data }: { data: Array<Products> }) {
                         <p className={styles.recommended__model}>{el.attributes.name}</p>
                         <p className={styles.recommended__type}>{el.attributes.type}</p>
                         <Link
-                           href={`/Catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
+                           href={`/catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
                            className={styles.recommended__btn}
                         >
                            <span>Узнать цену</span>
