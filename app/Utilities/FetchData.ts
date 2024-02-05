@@ -1,6 +1,6 @@
 export async function fetchGraphqlData(queryParam: string) {
    try {
-      const req = await fetch("https://genuine-festival-05909ce6ff.strapiapp.com/graphql", {
+      const req = await fetch("https://welkingroup.ru/graphql", {
          next: { revalidate: 60 },
          method: "POST",
          headers: { "Content-type": "application/json" },

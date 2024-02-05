@@ -29,13 +29,13 @@ async function Header() {
       phone {
         data {
           attributes {
-            header
+            Header
           }
         }
       }
     }
    `);
-   const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.header);
+   const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.Header);
    return (
       <div className={`container ${styles.header}`}>
          <MobileBlock />
@@ -56,7 +56,7 @@ async function Header() {
             </ul>
          </nav>
          <a href={"tel://" + decodedPhoneNumber} className={styles.header__tel}>
-            <span>{data.data.phone.data.attributes.header}</span>
+            <span>{data.data.phone.data.attributes.Header}</span>
          </a>
       </div>
    );

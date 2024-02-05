@@ -9,12 +9,32 @@ import styles from "./page.module.scss";
 export default async function Home() {
    const data = await fetchGraphqlData(`
    query {
-      maintitle {
+    maintitle {
+      data {
+        attributes {
+          Title
+          Description
+          Image {
             data {
               attributes {
-                title,
-                description,
-                image {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+    recommended(id:2) {
+       data {
+        attributes {
+          recom {
+            data {
+              id
+              attributes {
+                Name
+                Type
+                Reference
+                Image {
                   data {
                     attributes {
                       url
@@ -24,44 +44,24 @@ export default async function Home() {
               }
             }
           }
-      recommended(id: 1) {
-            data {
-              attributes {
-                produkties {
-                  data {
-                    id,
-                    attributes {
-                      name,
-                      type,
-                      reference
-                      image {
-                         data {
-                           attributes {
-                             url
-                           }
-                         }
-                       }
-                    }
-                  }
-                }
-              }
-            }
-          }
-      about {
-        data {
-          attributes {
-            title,
-            description
-          }
         }
       }
     }
+    about {
+      data {
+        attributes {
+          Title
+          Description
+        }
+      }
+    }
+  }
    `);
    return (
       <div className={styles.main}>
          <Preview data={data.data.maintitle} />
          <Equip />
-         <Recommended data={data.data.recommended.data.attributes.produkties.data} />
+         <Recommended data={data.data.recommended.data.attributes.recom.data} />
          <About data={data.data.about.data.attributes} />
          <ContactUs />
       </div>
