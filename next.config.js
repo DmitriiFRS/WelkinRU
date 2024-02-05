@@ -2,6 +2,7 @@
 module.exports = {
    trailingSlash: true,
    images: {
-      domains: ["localhost"],
+      loader: "default",
+      domains: ["welkingroup.ru"],
    },
 };

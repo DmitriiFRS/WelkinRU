@@ -4,10 +4,10 @@ import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 
 type ItemType = {
    attributes: {
-      name: string;
-      type: string;
-      reference: string;
-      image: any;
+      Name: string;
+      Type: string;
+      Reference: string;
+      Image: any;
    };
 };
 

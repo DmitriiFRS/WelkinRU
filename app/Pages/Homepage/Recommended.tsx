@@ -5,10 +5,10 @@ import Image from "next/image";
 type RecommendedType = {
    id: number;
    attributes: {
-      name: string;
-      type: string;
-      reference: string;
-      image: {
+      Name: string;
+      Type: string;
+      Reference: string;
+      Image: {
          data: {
             attributes: {
                url: string;
@@ -20,13 +20,14 @@ type RecommendedType = {
 type Products = {
    id: number;
    attributes: {
-      name: string;
-      type: string;
-      reference: string;
-      image: any;
+      Name: string;
+      Type: string;
+      Reference: string;
+      Image: any;
    };
 };
 async function Recommended({ data }: { data: Array<Products> }) {
+   console.log(data[0].attributes.Image.data.attributes.url);
    return (
       <div className={styles.recommended}>
          <div className="container">
@@ -35,22 +36,22 @@ async function Recommended({ data }: { data: Array<Products> }) {
                {data.map((el: RecommendedType) => {
                   return (
                      <li key={el.id} className={styles.recommended__item}>
-                        <Link href={`/catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}>
+                        <Link href={`/catalog/${el.attributes.Reference.replace(/\s|\//g, "_")}`}>
                            <div className={styles.recommended__cardBody}>
                               <div className={styles.recommended__imgBody}>
                                  <Image
-                                    src={el.attributes.image.data.attributes.url}
-                                    alt={el.attributes.name}
+                                    src={`https://welkingroup.ru${el.attributes.Image.data.attributes.url}`}
+                                    alt={el.attributes.Name}
                                     fill
                                     objectFit="contain"
                                  />
                               </div>
                            </div>
                         </Link>
-                        <p className={styles.recommended__model}>{el.attributes.name}</p>
-                        <p className={styles.recommended__type}>{el.attributes.type}</p>
+                        <p className={styles.recommended__model}>{el.attributes.Name}</p>
+                        <p className={styles.recommended__type}>{el.attributes.Type}</p>
                         <Link
-                           href={`/catalog/${el.attributes.reference.replace(/\s|\//g, "_")}`}
+                           href={`/catalog/${el.attributes.Reference.replace(/\s|\//g, "_")}`}
                            className={styles.recommended__btn}
                         >
                            <span>Узнать цену</span>

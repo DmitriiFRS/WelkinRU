@@ -11,11 +11,11 @@ import { setInitialCheckboxes, triggerEquipCheckbox } from "../Redux/main.slice"
 
 type ItemType = {
    attributes: {
-      name: string;
-      type: string;
-      subtype: string;
-      reference: string;
-      image: any;
+      Name: string;
+      Type: string;
+      Subtype: string;
+      Reference: string;
+      Image: any;
    };
 };
 
@@ -118,22 +118,22 @@ function Cards({ items }: { items: Props }) {
             filterArr[0].forEach((el) => {
                items.forEach((item) => {
                   if (
-                     el === item.attributes.type &&
-                     item.attributes.type !== buttons[0].checkbox[1] &&
+                     el === item.attributes.Type &&
+                     item.attributes.Type !== buttons[0].checkbox[1] &&
                      filterArr[1].length < 1 &&
                      filterArr[0].find((el) => el === buttons[0].checkbox[0])
                   ) {
                      newItems.push(item);
                   } else if (
-                     el === item.attributes.type &&
-                     item.attributes.type !== buttons[0].checkbox[0] &&
+                     el === item.attributes.Type &&
+                     item.attributes.Type !== buttons[0].checkbox[0] &&
                      filterArr[2].length < 1 &&
                      filterArr[0].find((el) => el === buttons[0].checkbox[1])
                   ) {
                      newItems.push(item);
-                  } else if (el === item.attributes.type && item.attributes.type === buttons[0].checkbox[2]) {
+                  } else if (el === item.attributes.Type && item.attributes.Type === buttons[0].checkbox[2]) {
                      newItems.push(item);
-                  } else if (el === item.attributes.type && item.attributes.type === buttons[0].checkbox[3]) {
+                  } else if (el === item.attributes.Type && item.attributes.Type === buttons[0].checkbox[3]) {
                      newItems.push(item);
                   }
                });
@@ -142,7 +142,7 @@ function Cards({ items }: { items: Props }) {
          if (filterArr[1].length > 0) {
             filterArr[1].forEach((el) => {
                items.forEach((item) => {
-                  if (el === item.attributes.subtype) {
+                  if (el === item.attributes.Subtype) {
                      newItems.push(item);
                   }
                });
@@ -151,7 +151,7 @@ function Cards({ items }: { items: Props }) {
          if (filterArr[2].length > 0) {
             filterArr[2].forEach((el) => {
                items.forEach((item) => {
-                  if (el === item.attributes.subtype) {
+                  if (el === item.attributes.Subtype) {
                      newItems.push(item);
                   }
                });

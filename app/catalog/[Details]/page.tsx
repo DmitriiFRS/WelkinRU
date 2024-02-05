@@ -8,53 +8,52 @@ import CatalogPDF from "./CatalogPDF";
 
 type MetadataType = {
    attributes: {
-      name: string;
-      type: string;
-      reference: string;
+      Name: string;
+      Type: string;
+      Reference: string;
    };
 };
 
 export async function generateMetadata({ params }: { params: { Details: string } }) {
    const item = await fetchGraphqlData(`
     query {
-      products {
+      items {
         data {
           attributes {
-            name
-            type
-            reference
+            Name
+            Type
+            Reference
           }
         }
       }
     }
   `);
-   const searchItem = item.data.products.data.find(
-      (el: MetadataType) => el.attributes.reference.replace(/\s|\//g, "_") === params.Details
+   const searchItem = item.data.items.data.find(
+      (el: MetadataType) => el.attributes.Reference.replace(/\s|\//g, "_") === params.Details
    );
    return {
-      title: searchItem.attributes.name,
-      description: searchItem.attributes.type,
+      title: searchItem.attributes.Name,
+      description: searchItem.attributes.Type,
    };
 }
 
 async function Details({ params }: { params: { Details: string } }) {
    const data = await fetchGraphqlData(`
    query {
-    products {
+    items {
       data {
         attributes {
-          name
-          type
-          subtype
-          reference
+          Name
+          Type
+          Reference
+          Subtype
           Cooling_Output
           Heat_Output
-          ton
-          size
-          description1
-          description2
-          description3
-          image {
+          Size
+          Description
+          Description2
+          Description3
+          Image {
             data {
               attributes {
                 url
@@ -64,50 +63,50 @@ async function Details({ params }: { params: { Details: string } }) {
         }
       }
     }
-      recommended(id: 1) {
-        data {
-          attributes {
-            produkties {
-              data {
-                id,
-                attributes {
-                  name,
-                  type,
-                  reference
-                  image {
-                     data {
-                       attributes {
-                         url
-                       }
-                     }
-                   }
+    recommended(id:2) {
+      data {
+        attributes {
+          recom {
+            data {
+              id
+              attributes {
+                Name
+                Type
+                Reference
+                Image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
                 }
               }
             }
           }
         }
       }
-      phone {
-        data {
-          attributes {
-            header
-          }
+    }
+    phone {
+      data {
+        attributes {
+          Header
         }
       }
     }
+  }
    `);
    const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.header);
    return (
       <div className={styles.details}>
          <div className="container">
             <Breadcrumbs />
-            {data.data.products.data.map((el: DataType, index: number) => {
-               if (el.attributes.reference.replace(/\s|\//g, "_") === params.Details) {
+            {data.data.items.data.map((el: DataType, index: number) => {
+               if (el.attributes.Reference.replace(/\s|\//g, "_") === params.Details) {
                   return <DetailsBody key={index} el={el} decodedPhoneNumber={decodedPhoneNumber} />;
                }
             })}
             <CatalogPDF />
-            <Recommended data={data.data.recommended.data.attributes.produkties.data} />
+            <Recommended data={data.data.recommended.data.attributes.recom.data} />
          </div>
          <ContactUs />
       </div>

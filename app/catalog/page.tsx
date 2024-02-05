@@ -13,32 +13,33 @@ export const metadata: Metadata = {
 async function catalog() {
    const data = await fetchGraphqlData(`
    query {
-      products {
-        data {
-          attributes {
-            name,
-            type,
-            reference,
-            subtype
-            image {
-              data {
-                attributes {
-                  url
-                }
+    items {
+      data {
+        attributes {
+          Name
+          Type
+          Reference
+          Subtype
+          Image {
+            data {
+              attributes {
+                url
               }
             }
           }
         }
       }
     }
+  }
    `);
+   console.log(data.data);
    return (
       <div className={styles.catalog}>
          <div className="container">
             <Breadcrumbs />
             <h2 className={styles.catalog__title}>Каталог</h2>
             <div className={styles.catalog__body}>
-               <Cards items={data.data.products.data} />
+               <Cards items={data.data.items.data} />
             </div>
          </div>
          <ContactUs />
