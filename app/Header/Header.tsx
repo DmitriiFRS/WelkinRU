@@ -2,7 +2,6 @@ import styles from "./header.module.scss";
 import Image from "next/image";
 import logo from "../../public/svg/logo.svg";
 import Link from "next/link";
-import Dropdown from "./Dropdown";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 import MobileBlock from "./Mobile/MobileBlock";
 
