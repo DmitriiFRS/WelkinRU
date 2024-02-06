@@ -141,7 +141,7 @@ function Cards({ items }: { items: Props }) {
          if (filterArr[1].length > 0) {
             filterArr[1].forEach((el) => {
                items.forEach((item) => {
-                  if (el === item.attributes.Subtype) {
+                  if (item.attributes.Subtype && el === item.attributes.Subtype) {
                      newItems.push(item);
                   }
                });
@@ -150,7 +150,7 @@ function Cards({ items }: { items: Props }) {
          if (filterArr[2].length > 0) {
             filterArr[2].forEach((el) => {
                items.forEach((item) => {
-                  if (el === item.attributes.Subtype) {
+                  if (item.attributes.Subtype && el === item.attributes.Subtype) {
                      newItems.push(item);
                   }
                });
