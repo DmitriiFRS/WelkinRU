@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-   trailingSlash: false,
+   trailingSlash: true,
    images: {
       loader: "default",
       domains: ["welkingroup.ru"],
