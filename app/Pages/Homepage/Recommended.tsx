@@ -27,7 +27,6 @@ type Products = {
    };
 };
 async function Recommended({ data }: { data: Array<Products> }) {
-   console.log(data[0].attributes.Image.data.attributes.url);
    return (
       <div className={styles.recommended}>
          <div className="container">

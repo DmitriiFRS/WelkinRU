@@ -13,7 +13,7 @@ type ItemType = {
    attributes: {
       Name: string;
       Type: string;
-      Subtype: string;
+      Subtype: string | null;
       Reference: string;
       Image: any;
    };
@@ -82,7 +82,6 @@ function Cards({ items }: { items: Props }) {
                break;
          }
          setTrigger(!trigger);
-         console.log("if");
       }
    }, [dispatch]);
 

@@ -2,8 +2,6 @@
 import styles from "./utilities.module.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 function Breadcrumbs() {
    const paths = usePathname();
