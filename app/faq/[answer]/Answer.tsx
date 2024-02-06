@@ -3,12 +3,12 @@ import styles from "../faq.module.scss";
 type DataInner = {
    id: number;
    attributes: {
-      question: string;
-      answer: string;
-      answer2: string | null;
-      answer3: string | null;
-      answer4: string | null;
-      answer5: string | null;
+      Question: string;
+      Answer: string;
+      Answer2: string | null;
+      Answer3: string | null;
+      Answer4: string | null;
+      Answer5: string | null;
    };
 };
 
@@ -25,12 +25,12 @@ function Answer({ data, answer }: Props) {
             if (el.id.toString() === answer) {
                return (
                   <div className={styles.answer__item} key={el.id}>
-                     <h3 className={styles.answer__question}>{el.attributes.question}</h3>
-                     <p className={styles.answer__answer}>{el.attributes.answer}</p>
-                     {el.attributes.answer2 && <p className={styles.answer__answer}>{el.attributes.answer2}</p>}
-                     {el.attributes.answer3 && <p className={styles.answer__answer}>{el.attributes.answer3}</p>}
-                     {el.attributes.answer4 && <p className={styles.answer__answer}>{el.attributes.answer4}</p>}
-                     {el.attributes.answer5 && <p className={styles.answer__answer}>{el.attributes.answer5}</p>}
+                     <h3 className={styles.answer__question}>{el.attributes.Question}</h3>
+                     <p className={styles.answer__answer}>{el.attributes.Answer}</p>
+                     {el.attributes.Answer2 && <p className={styles.answer__answer}>{el.attributes.Answer2}</p>}
+                     {el.attributes.Answer3 && <p className={styles.answer__answer}>{el.attributes.Answer3}</p>}
+                     {el.attributes.Answer4 && <p className={styles.answer__answer}>{el.attributes.Answer4}</p>}
+                     {el.attributes.Answer5 && <p className={styles.answer__answer}>{el.attributes.Answer5}</p>}
                   </div>
                );
             }

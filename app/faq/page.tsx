@@ -12,11 +12,11 @@ export const metadata = {
 async function Faq() {
    const data = await fetchGraphqlData(`
    query {
-      answers {
+      questions {
         data {
          id
           attributes {
-            question
+            Question
           }
         }
       }
@@ -26,7 +26,7 @@ async function Faq() {
       <div className={styles.faq}>
          <div className="container">
             <Breadcrumbs />
-            <Questions data={data.data.answers.data} />
+            <Questions data={data.data.questions.data} />
          </div>
          <ContactUs />
       </div>

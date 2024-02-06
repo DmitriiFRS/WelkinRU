@@ -4,7 +4,7 @@ import Col from "./Col";
 type DataType = {
    id: number;
    attributes: {
-      question: string;
+      Question: string;
    };
 };
 
@@ -14,7 +14,7 @@ function Questions({ data }: { data: Array<DataType> }) {
          <h2 className={styles.faq__title}>Часто задаваемые вопросы</h2>
          <ul className={styles.faq__cols}>
             {data.map((el) => {
-               return <Col key={el.id} el={el.attributes.question} id={el.id} />;
+               return <Col key={el.id} el={el.attributes.Question} id={el.id} />;
             })}
          </ul>
       </section>

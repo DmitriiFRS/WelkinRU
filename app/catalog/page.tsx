@@ -32,7 +32,6 @@ async function catalog() {
     }
   }
    `);
-   console.log(data.data);
    return (
       <div className={styles.catalog}>
          <div className="container">
@@ -47,4 +46,3 @@ async function catalog() {
    );
 }
 export default catalog;
-//comment

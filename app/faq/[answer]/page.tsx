@@ -6,16 +6,16 @@ import Breadcrumbs from "@/app/Utilities/Breadcrumbs";
 async function page({ params }: { params: { answer: string } }) {
    const data = await fetchGraphqlData(`
    query {
-      answers {
+      questions {
         data {
-         id
+          id
           attributes {
-            question
-            answer
-            answer2
-            answer3
-            answer4
-            answer5
+            Question
+            Answer
+            Answer2
+            Answer3
+            Answer4
+            Answer5
           }
         }
       }
@@ -25,7 +25,7 @@ async function page({ params }: { params: { answer: string } }) {
       <div className={styles.answer}>
          <div className="container">
             <Breadcrumbs />
-            <Answer data={data.data.answers.data} answer={params.answer} />
+            <Answer data={data.data.questions.data} answer={params.answer} />
          </div>
       </div>
    );
