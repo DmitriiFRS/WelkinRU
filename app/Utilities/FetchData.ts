@@ -9,7 +9,7 @@ export async function fetchGraphqlData(queryParam: string) {
          }),
       });
       if (req.status > 300) {
-         fetchGraphqlData(queryParam);
+         throw new Error(`Ошибка запроса: ${req.status}`);
       }
       return req.json();
    } catch (error: any) {

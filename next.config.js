@@ -2,7 +2,11 @@
 module.exports = {
    trailingSlash: true,
    images: {
-      loader: "default",
-      domains: ["welkingroup.ru"],
+      remotePatterns: [
+         {
+            protocol: "https",
+            hostname: "welkingroup.ru",
+         },
+      ],
    },
 };
