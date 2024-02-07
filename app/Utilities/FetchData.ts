@@ -8,8 +8,8 @@ export async function fetchGraphqlData(queryParam: string) {
             query: queryParam,
          }),
       });
-      if (!req.ok) {
-         throw new Error(`Ошибка запроса: ${req.status}`);
+      if (req.status > 300) {
+         fetchGraphqlData(queryParam);
       }
       return req.json();
    } catch (error: any) {
