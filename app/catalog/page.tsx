@@ -1,48 +1,59 @@
-import { Metadata } from "next/types";
+"use client";
+
 import ContactUs from "../Pages/Homepage/ContactUs/ContactUs";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
-import { fetchGraphqlData } from "../Utilities/FetchData";
 import Cards from "./Cards";
 import styles from "./catalog.module.scss";
+import { useEffect, useState } from "react";
 
-export const metadata: Metadata = {
-   title: "Каталог",
-   description: "Каталог Welkin",
-};
+function Catalog() {
+   const [data, setData] = useState<any>(null);
 
-async function catalog() {
-   const data = await fetchGraphqlData(`
-   query {
-    items {
-      data {
-        attributes {
-          Name
-          Type
-          Reference
-          Subtype
-          Image {
+   useEffect(() => {
+      fetch("https://welkingroup.ru/graphql", {
+         method: "POST",
+         headers: { "Content-type": "application/json" },
+         body: JSON.stringify({
+            query: `
+        query {
+          items {
             data {
               attributes {
-                url
+                Name
+                Type
+                Reference
+                Subtype
+                Image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
               }
             }
           }
         }
-      }
-    }
-  }
-   `);
+        `,
+         }),
+      })
+         .then((res) => res.json())
+         .then((res) => setData(res));
+   }, []);
+
    return (
-      <div className={styles.catalog}>
-         <div className="container">
-            <Breadcrumbs />
-            <h2 className={styles.catalog__title}>Каталог</h2>
-            <div className={styles.catalog__body}>
-               <Cards items={data.data.items.data} />
+      data && (
+         <div className={styles.catalog}>
+            <div className="container">
+               <Breadcrumbs />
+               <h2 className={styles.catalog__title}>Каталог</h2>
+               <div className={styles.catalog__body}>
+                  <Cards items={data.data.items.data} />
+               </div>
             </div>
+            <ContactUs />
          </div>
-         <ContactUs />
-      </div>
+      )
    );
 }
-export default catalog;
+export default Catalog;
