@@ -2,7 +2,7 @@
 
 import PushData from "./PushData";
 import styles from "../homepage.module.scss";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Popup from "./Popup";
 
 function Inputs() {
@@ -30,9 +30,6 @@ function Inputs() {
          }
       } else {
          setPopupOpen(true);
-         setName("");
-         setTel("");
-         setQuestion("");
       }
    }
 
@@ -56,9 +53,29 @@ function Inputs() {
       setTelIsDirty(false);
       setTextIsDirty(false);
    }
-   function handleSubmit() {}
+   async function handleSubmit(e: FormEvent) {
+      e.preventDefault();
+      try {
+         const res = await fetch("api/contact/", {
+            method: "POST",
+            body: JSON.stringify({
+               name,
+               tel,
+               question,
+            }),
+            headers: {
+               "content-type": "application/json",
+            },
+         });
+      } catch (err: any) {
+         console.log("ERROR", err);
+      }
+      setName("");
+      setTel("");
+      setQuestion("");
+   }
    return (
-      <form method="post" onSubmit={handleSubmit} className={styles.contactUs__inputsBody}>
+      <form onSubmit={handleSubmit} className={styles.contactUs__inputsBody}>
          <input
             onFocus={clearDirtyStatus}
             value={name}
