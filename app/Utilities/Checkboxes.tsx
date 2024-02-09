@@ -48,7 +48,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                         className={styles.checkbox__item}
                      >
                         <input
-                           checked={checkboxes[index]}
+                           defaultChecked={checkboxes[index]}
                            readOnly
                            type="checkbox"
                            id={(id + index).toString()}
@@ -71,7 +71,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                            className={styles.checkbox__item}
                         >
                            <input
-                              checked={chillerCheckboxes[index]}
+                              defaultChecked={chillerCheckboxes[index]}
                               type="checkbox"
                               id={(id + index).toString()}
                               className={styles.checkbox__checkbox}
@@ -94,7 +94,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                            className={styles.checkbox__item}
                         >
                            <input
-                              checked={vrfCheckboxes[index]}
+                              defaultChecked={vrfCheckboxes[index]}
                               type="checkbox"
                               id={(id + index).toString()}
                               className={styles.checkbox__checkbox}

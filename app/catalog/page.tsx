@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Cards from "./Cards";
+import Loader from "./Loader";
 
 function CatalogContainer() {
    const [data, setData] = useState<any>(null);
@@ -37,6 +38,6 @@ function CatalogContainer() {
          .then((res) => res.json())
          .then((res) => setData(res));
    }, []);
-   return data && <Cards items={data.data.items.data} />;
+   return !data ? <Loader /> : <Cards items={data.data.items.data} />;
 }
 export default CatalogContainer;
