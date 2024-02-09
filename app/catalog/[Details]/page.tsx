@@ -96,6 +96,7 @@ async function Details({ params }: { params: { Details: string } }) {
   }
    `);
    const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.header);
+   console.log("details");
    return (
       <div className={styles.details}>
          <div className="container">
