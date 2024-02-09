@@ -33,6 +33,7 @@ function ContentInner({ items, isTransition }: { items: Props; isTransition: boo
                               alt="welkin"
                               fill
                               objectFit="contain"
+                              quality={50}
                            />
                         </div>
                      </Link>
