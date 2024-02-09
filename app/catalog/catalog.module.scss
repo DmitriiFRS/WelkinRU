@@ -482,6 +482,9 @@
    margin: 60px 0 0 0;
    font-size: 32px;
    font-weight: 700;
+   @media (max-width: 450px) {
+      font-size: 24px;
+   }
 }
 @keyframes lds-ring {
    0% {
