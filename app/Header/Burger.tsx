@@ -30,7 +30,7 @@ function Burger({ isActive, setActive }: { isActive: boolean; setActive: (el: bo
       setActive(!isActive);
    }
    return (
-      <button onClick={toggleMenu} className={styles.burger}>
+      <button aria-label="Меню" onClick={toggleMenu} className={styles.burger}>
          <div className={`${styles.burger__lines} ${isActive ? styles.burger__lines__unactive : ""}`}>
             <span></span>
             <span></span>
