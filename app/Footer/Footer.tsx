@@ -34,15 +34,21 @@ async function Footer() {
                <div className={styles.footer__cols__items}>
                   <h3 className={styles.footer__cols__title}>Навигация</h3>
                   <ul className={styles.footer__cols__list}>
-                     <Link className={styles.footer__cols__itemBody} href={"/catalog"}>
-                        <li className={styles.footer__cols__item}>каталог</li>
-                     </Link>
-                     <Link className={styles.footer__cols__itemBody} href={"/about"}>
-                        <li className={styles.footer__cols__item}>о компании</li>
-                     </Link>
-                     <Link className={styles.footer__cols__itemBody} href={"/faq"}>
-                        <li className={styles.footer__cols__item}>вопрос-ответ</li>
-                     </Link>
+                     <li className={styles.footer__cols__item}>
+                        <Link className={styles.footer__cols__itemBody} href={"/catalog"}>
+                           каталог
+                        </Link>
+                     </li>
+                     <li className={styles.footer__cols__item}>
+                        <Link className={styles.footer__cols__itemBody} href={"/about"}>
+                           о компании
+                        </Link>
+                     </li>
+                     <li className={styles.footer__cols__item}>
+                        <Link className={styles.footer__cols__itemBody} href={"/faq"}>
+                           вопрос-ответ
+                        </Link>
+                     </li>
                   </ul>
                </div>
                <div className={styles.footer__cols__items}>
