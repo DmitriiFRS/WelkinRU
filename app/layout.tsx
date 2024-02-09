@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.scss";
 import ReduxProvider from "./Redux/ReduxProvider";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
    title: "Welkin",
