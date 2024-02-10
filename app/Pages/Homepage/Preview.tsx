@@ -19,6 +19,7 @@ async function Preview({ data }: any) {
                      src={`https://welkingroup.ru${data.data.attributes.Image.data.attributes.url}`}
                      alt="vrf-v6"
                      fill
+                     quality={60}
                   />
                </div>
             </div>
