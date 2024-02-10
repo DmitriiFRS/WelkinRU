@@ -20,6 +20,7 @@ async function Preview({ data }: any) {
                      alt="vrf-v6"
                      fill
                      quality={60}
+                     priority={true}
                   />
                </div>
             </div>
