@@ -18,6 +18,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
 
    function toggleCheckbox(idx: number) {
       dispatch(toggleEquipCheckbox(idx));
+      console.log(checkboxes);
    }
    useEffect(() => {
       if (!checkboxes[0]) {
@@ -50,6 +51,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                         <input
                            defaultChecked={checkboxes[index]}
                            readOnly
+                           onClick={(e) => e.stopPropagation()}
                            type="checkbox"
                            id={(id + index).toString()}
                            className={styles.checkbox__checkbox}
@@ -73,6 +75,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                            <input
                               defaultChecked={chillerCheckboxes[index]}
                               type="checkbox"
+                              onClick={(e) => e.stopPropagation()}
                               id={(id + index).toString()}
                               className={styles.checkbox__checkbox}
                            />
@@ -96,6 +99,7 @@ function Checkboxes({ checkbox, id }: { checkbox: Array<string>; id: number }) {
                            <input
                               defaultChecked={vrfCheckboxes[index]}
                               type="checkbox"
+                              onClick={(e) => e.stopPropagation()}
                               id={(id + index).toString()}
                               className={styles.checkbox__checkbox}
                            />
