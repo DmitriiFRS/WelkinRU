@@ -4,8 +4,31 @@ import logo from "../../public/svg/logo.svg";
 import Link from "next/link";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 
+type SocialInner = {
+   id: number;
+   attributes: {
+      name: string;
+      href: string;
+   };
+};
+
+type FooterData = {
+   data: {
+      phone: {
+         data: {
+            attributes: {
+               Footer: string;
+            };
+         };
+      };
+      footerSocials: {
+         data: Array<SocialInner>;
+      };
+   };
+};
+
 async function Footer() {
-   const data = await fetchGraphqlData(`
+   const data: FooterData = await fetchGraphqlData(`
    query {
       phone {
         data {
@@ -14,9 +37,17 @@ async function Footer() {
           }
         }
       }
+      footerSocials {
+         data {
+         id
+           attributes {
+             name
+             href
+           }
+         }
+       }
     }
    `);
-
    return (
       data.data.phone.data.attributes.Footer && (
          <div className={`container ${styles.footer}`}>
@@ -63,7 +94,15 @@ async function Footer() {
                <div className={styles.footer__cols__items}>
                   <h3 className={styles.footer__cols__title}>Соц сети</h3>
                   <ul className={styles.footer__cols__list}>
-                     <li className={styles.footer__cols__item}>Telegram</li>
+                     {data.data.footerSocials.data.map((el) => {
+                        return (
+                           <li key={el.id} className={styles.footer__cols__item}>
+                              <Link className={styles.footer__cols__itemLink} href={el.attributes.href}>
+                                 {el.attributes.name}
+                              </Link>
+                           </li>
+                        );
+                     })}
                   </ul>
                </div>
             </div>
@@ -72,3 +111,5 @@ async function Footer() {
    );
 }
 export default Footer;
+
+// <li className={styles.footer__cols__item}>Telegram</li>

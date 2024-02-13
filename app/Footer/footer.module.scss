@@ -21,6 +21,10 @@
       text-transform: uppercase;
       max-width: 211px;
       text-decoration: underline;
+      transition: 0.25s;
+      &:hover {
+         color: #fec300;
+      }
    }
    &__cols {
       display: flex;
@@ -58,6 +62,10 @@
          &:hover {
             color: #fec300;
          }
+      }
+      &__itemLink {
+         display: flex;
+         color: inherit;
       }
       &__itemMail {
          text-transform: lowercase;
