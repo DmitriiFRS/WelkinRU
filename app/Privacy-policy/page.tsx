@@ -2,11 +2,28 @@ import { Metadata } from "next/types";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import TextBlock from "./TextBlock";
 import styles from "./privacy.module.scss";
+import { fetchGraphqlData } from "../Utilities/FetchData";
 
-export const metadata: Metadata = {
-   title: "Политика конфиденциальности",
-   description: "Политика конфиденциальности Welkin",
-};
+export async function generateMetadata() {
+   const data = await fetchGraphqlData(
+      `
+      query {
+         metaCredential {
+           data {
+             attributes {
+               title
+               description
+             }
+           }
+         }
+       }
+    `
+   );
+   return {
+      title: data.data.metaCredential.data.attributes.title,
+      description: data.data.metaCredential.data.attributes.description,
+   };
+}
 
 type TypeSubtitlesInner = {
    main: string;

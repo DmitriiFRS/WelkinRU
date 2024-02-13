@@ -6,6 +6,27 @@ import Recommended from "./Pages/Homepage/Recommended";
 import { fetchGraphqlData } from "./Utilities/FetchData";
 import styles from "./page.module.scss";
 
+export async function generateMetadata() {
+   const data = await fetchGraphqlData(
+      `
+    query {
+      metaHomepage {
+        data {
+          attributes {
+            title
+            description
+          }
+        }
+      }
+    }
+    `
+   );
+   return {
+      title: data.data.metaHomepage.data.attributes.title,
+      description: data.data.metaHomepage.data.attributes.description,
+   };
+}
+
 export default async function Home() {
    const data = await fetchGraphqlData(`
    query {

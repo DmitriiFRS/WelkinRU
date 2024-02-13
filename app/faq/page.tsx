@@ -4,10 +4,26 @@ import { fetchGraphqlData } from "../Utilities/FetchData";
 import Questions from "./Questions";
 import styles from "./faq.module.scss";
 
-export const metadata = {
-   title: "Вопрос-ответ",
-   description: "Часто задаваемые вопросы",
-};
+export async function generateMetadata() {
+   const data = await fetchGraphqlData(
+      `
+      query {
+         metaFaq {
+           data {
+             attributes {
+               title
+               description
+             }
+           }
+         }
+       }
+    `
+   );
+   return {
+      title: data.data.metaFaq.data.attributes.title,
+      description: data.data.metaFaq.data.attributes.description,
+   };
+}
 
 async function Faq() {
    const data = await fetchGraphqlData(`
