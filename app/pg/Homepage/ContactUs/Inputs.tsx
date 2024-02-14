@@ -4,6 +4,7 @@ import PushData from "./PushData";
 import styles from "../homepage.module.scss";
 import { FormEvent, useEffect, useState } from "react";
 import Popup from "./Popup";
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 function Inputs() {
    let scrollWidth: null | number = null;
@@ -44,12 +45,11 @@ function Inputs() {
    }, [isPopupOpen, scrollWidth]);
 
    function changeTel(e: React.ChangeEvent<HTMLInputElement>) {
-      if (!/^\+?([0-9]{10,15})$/.test(e.target.value)) {
-         e.preventDefault();
-         return;
+      if (e.target.value.length > 13) return;
+      if (e.target.value.length < 1) setTel("");
+      if (/^(?!\\s)[0-9+]+$/.test(e.target.value)) {
+         setTel(e.target.value);
       }
-      if (e.target.value.length > 12) return;
-      setTel(e.target.value);
    }
    function clearDirtyStatus() {
       setNameIsDirty(false);
@@ -106,7 +106,7 @@ function Inputs() {
             onChange={(e) => changeTel(e)}
             className={`${styles.contactUs__input} ${telIsDirty ? styles.contactUs__input__dirty : ""}`}
             placeholder="ваш телефон"
-            type="tel"
+            type="text"
          />
          <textarea
             onFocus={clearDirtyStatus}
