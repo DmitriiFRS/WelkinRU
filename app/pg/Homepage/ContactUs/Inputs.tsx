@@ -4,7 +4,6 @@ import PushData from "./PushData";
 import styles from "../homepage.module.scss";
 import { FormEvent, useEffect, useState } from "react";
 import Popup from "./Popup";
-import { isValidPhoneNumber } from "react-phone-number-input";
 
 function Inputs() {
    let scrollWidth: null | number = null;
