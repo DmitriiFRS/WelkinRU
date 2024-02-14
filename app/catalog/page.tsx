@@ -1,4 +1,4 @@
-import ContactUs from "../Pages/Homepage/ContactUs/ContactUs";
+import ContactUs from "../pg/Homepage/ContactUs/ContactUs";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 import CatalogContainer from "./CatalogContainer";

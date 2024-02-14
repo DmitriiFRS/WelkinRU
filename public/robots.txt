@@ -1,3 +1,7 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
 User-agent: *
 Allow: /
-Sitemap: https://welkingroup.ru/sitemap.xml
+
+Sitemap: https://www.welkingroup.ru/sitemap.xml

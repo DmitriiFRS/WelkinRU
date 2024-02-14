@@ -1,4 +1,4 @@
-import ContactUs from "../Pages/Homepage/ContactUs/ContactUs";
+import ContactUs from "../pg/Homepage/ContactUs/ContactUs";
 import Breadcrumbs from "../Utilities/Breadcrumbs";
 import Cols from "./Cols";
 import Title from "./Title";

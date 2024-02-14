@@ -44,7 +44,10 @@ function Inputs() {
    }, [isPopupOpen, scrollWidth]);
 
    function changeTel(e: React.ChangeEvent<HTMLInputElement>) {
-      if (!/^\d*$/.test(e.target.value)) return;
+      if (!/^\+?([0-9]{10,15})$/.test(e.target.value)) {
+         e.preventDefault();
+         return;
+      }
       if (e.target.value.length > 12) return;
       setTel(e.target.value);
    }
@@ -55,20 +58,32 @@ function Inputs() {
    }
    async function handleSubmit(e: FormEvent) {
       e.preventDefault();
+      if (!name || !tel || !question) return;
       try {
-         const res = await fetch("api/contact/", {
+         const res = await fetch("https://welkingroup.ru/graphql", {
             method: "POST",
             body: JSON.stringify({
-               name,
-               tel,
-               question,
+               query: `
+            mutation {
+               createApplication(data:{name: "${name}", phone: "${tel}", question: "${question}"}) {
+                 data {
+                   id
+                   attributes {
+                     name
+                     phone
+                     question
+                   }
+                 }
+               }
+             }
+            `,
             }),
             headers: {
                "content-type": "application/json",
             },
          });
       } catch (err: any) {
-         console.log("ERROR", err);
+         console.error("error", err);
       }
       setName("");
       setTel("");

@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/app/Utilities/Breadcrumbs";
 import styles from "../catalog.module.scss";
-import Recommended from "@/app/Pages/Homepage/Recommended";
-import ContactUs from "@/app/Pages/Homepage/ContactUs/ContactUs";
+import Recommended from "@/app/pg/Homepage/Recommended";
+import ContactUs from "@/app/pg/Homepage/ContactUs/ContactUs";
 import { fetchGraphqlData } from "@/app/Utilities/FetchData";
 import DetailsBody, { DataType } from "./DetailsBody";
 import CatalogPDF from "./CatalogPDF";

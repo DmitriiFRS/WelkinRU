@@ -1,8 +1,8 @@
-import About from "./Pages/Homepage/About";
-import ContactUs from "./Pages/Homepage/ContactUs/ContactUs";
-import Equip from "./Pages/Homepage/Equip";
-import Preview from "./Pages/Homepage/Preview";
-import Recommended from "./Pages/Homepage/Recommended";
+import About from "./pg/Homepage/About";
+import ContactUs from "./pg/Homepage/ContactUs/ContactUs";
+import Equip from "./pg/Homepage/Equip";
+import Preview from "./pg/Homepage/Preview";
+import Recommended from "./pg/Homepage/Recommended";
 import { fetchGraphqlData } from "./Utilities/FetchData";
 import styles from "./page.module.scss";
 
