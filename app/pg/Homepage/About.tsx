@@ -5,8 +5,8 @@ import Link from "next/link";
 
 type Props = {
    data: {
-      Title: string;
-      Description: string;
+      title: string;
+      subtitle: string;
    };
 };
 
@@ -18,8 +18,8 @@ function About({ data }: Props) {
                <Image src={aboutImg} alt="welkin" fill />
             </div>
             <div className={styles.about__titleBody}>
-               <h2 className={styles.about__title}>{data.Title}</h2>
-               <p className={styles.about__subtitle}>{data.Description}</p>
+               <h2 className={styles.about__title}>{data.title}</h2>
+               <p className={styles.about__subtitle}>{data.subtitle}</p>
                <Link href={"/about"} className={styles.about__btn}>
                   Подробнее
                </Link>

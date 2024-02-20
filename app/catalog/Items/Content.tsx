@@ -3,11 +3,11 @@ import ContentInner from "./ContentInner";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 
 type ItemType = {
-   attributes: {
-      Name: string;
-      Type: string;
-      Reference: string;
-      Image: any;
+   productCard: {
+      title: string;
+      type: Array<string>;
+      href: string;
+      image: any;
    };
 };
 

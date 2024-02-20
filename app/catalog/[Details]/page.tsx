@@ -14,7 +14,7 @@ type MetadataType = {
    };
 };
 
-export async function generateMetadata({ params }: { params: { Details: string } }) {
+/*export async function generateMetadata({ params }: { params: { Details: string } }) {
    const item = await fetchGraphqlData(`
     query {
       items {
@@ -35,78 +35,67 @@ export async function generateMetadata({ params }: { params: { Details: string }
       title: searchItem.attributes.Name,
       description: searchItem.attributes.Type,
    };
-}
+}*/
 
 async function Details({ params }: { params: { Details: string } }) {
    const data = await fetchGraphqlData(`
    query {
-    items {
-      data {
-        attributes {
-          Name
-          Type
-          Reference
-          Subtype
-          Cooling_Output
-          Heat_Output
-          Size
-          Description
-          Description2
-          Description3
-          Image {
-            data {
-              attributes {
-                url
-              }
+    products(first: 99) {
+      nodes {
+        productCard {
+          title
+          type
+          href
+          subtype
+          coolingOutput
+          heatOutput
+          size
+          description
+          description2
+          description3
+          image {
+            node {
+              sourceUrl
             }
           }
         }
       }
     }
-    recommended(id:2) {
-      data {
-        attributes {
-          recom {
-            data {
-              id
-              attributes {
-                Name
-                Type
-                Reference
-                Image {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
+    recommends {
+      nodes {
+        productRecommended {
+          name
+          type
+          href
+          image {
+            node {
+              sourceUrl
             }
           }
         }
       }
     }
-    phone {
-      data {
-        attributes {
-          Header
+    phones {
+      nodes {
+        phoneNumber {
+          number
         }
       }
     }
   }
    `);
-   const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.header);
+   const decodedPhoneNumber = decodeURI(data.data.phones.nodes[0].phoneNumber.number);
    return (
       <div className={styles.details}>
          <div className="container">
             <Breadcrumbs />
-            {data.data.items.data.map((el: DataType, index: number) => {
-               if (el.attributes.Reference.replace(/\s|\//g, "_") === params.Details) {
+            {data.data.products.nodes.map((el: DataType, index: number) => {
+               if (el.productCard.href.replace(/\s|\//g, "_") === params.Details) {
                   return <DetailsBody key={index} el={el} decodedPhoneNumber={decodedPhoneNumber} />;
                }
             })}
             <CatalogPDF />
-            <Recommended data={data.data.recommended.data.attributes.recom.data} />
+            <Recommended data={data.data.recommends.nodes} />
          </div>
          <ContactUs />
       </div>

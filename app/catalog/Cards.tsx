@@ -10,12 +10,12 @@ import { useSearchParams } from "next/navigation";
 import { setInitialCheckboxes, triggerEquipCheckbox } from "../Redux/main.slice";
 
 type ItemType = {
-   attributes: {
-      Name: string;
-      Type: string;
-      Subtype: string | null;
-      Reference: string;
-      Image: any;
+   productCard: {
+      title: string;
+      type: Array<string>;
+      subtype: Array<string>;
+      href: string;
+      image: any;
    };
 };
 
@@ -43,6 +43,9 @@ const buttons: ButtonsType = [
 ];
 
 function Cards({ items }: { items: Props }) {
+   useEffect(() => {
+      console.log(items);
+   }, []);
    const checkboxes = useSelector((state: RootState) => state.mainReducer.equipCheckboxes);
    const chillerCheckboxes = useSelector((state: RootState) => state.mainReducer.chillerCheckboxes);
    const vrfCheckboxes = useSelector((state: RootState) => state.mainReducer.vrfCheckboxes);
@@ -117,22 +120,22 @@ function Cards({ items }: { items: Props }) {
             filterArr[0].forEach((el) => {
                items.forEach((item) => {
                   if (
-                     el === item.attributes.Type &&
-                     item.attributes.Type !== buttons[0].checkbox[1] &&
+                     el === item.productCard.type[0] &&
+                     item.productCard.type[0] !== buttons[0].checkbox[1] &&
                      filterArr[1].length < 1 &&
                      filterArr[0].find((el) => el === buttons[0].checkbox[0])
                   ) {
                      newItems.push(item);
                   } else if (
-                     el === item.attributes.Type &&
-                     item.attributes.Type !== buttons[0].checkbox[0] &&
+                     el === item.productCard.type[0] &&
+                     item.productCard.type[0] !== buttons[0].checkbox[0] &&
                      filterArr[2].length < 1 &&
                      filterArr[0].find((el) => el === buttons[0].checkbox[1])
                   ) {
                      newItems.push(item);
-                  } else if (el === item.attributes.Type && item.attributes.Type === buttons[0].checkbox[2]) {
+                  } else if (el === item.productCard.type[0] && item.productCard.type[0] === buttons[0].checkbox[2]) {
                      newItems.push(item);
-                  } else if (el === item.attributes.Type && item.attributes.Type === buttons[0].checkbox[3]) {
+                  } else if (el === item.productCard.type[0] && item.productCard.type[0] === buttons[0].checkbox[3]) {
                      newItems.push(item);
                   }
                });
@@ -141,7 +144,7 @@ function Cards({ items }: { items: Props }) {
          if (filterArr[1].length > 0) {
             filterArr[1].forEach((el) => {
                items.forEach((item) => {
-                  if (item.attributes.Subtype && el === item.attributes.Subtype) {
+                  if (item.productCard.subtype && el === item.productCard.subtype[0]) {
                      newItems.push(item);
                   }
                });
@@ -150,7 +153,7 @@ function Cards({ items }: { items: Props }) {
          if (filterArr[2].length > 0) {
             filterArr[2].forEach((el) => {
                items.forEach((item) => {
-                  if (item.attributes.Subtype && el === item.attributes.Subtype) {
+                  if (item.productCard.subtype && el === item.productCard.subtype[0]) {
                      newItems.push(item);
                   }
                });

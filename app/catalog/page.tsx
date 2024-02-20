@@ -4,7 +4,7 @@ import { fetchGraphqlData } from "../Utilities/FetchData";
 import CatalogContainer from "./CatalogContainer";
 import styles from "./catalog.module.scss";
 
-export async function generateMetadata() {
+/*export async function generateMetadata() {
    const data = await fetchGraphqlData(
       `
       query {
@@ -23,7 +23,7 @@ export async function generateMetadata() {
       title: data.data.metaCatalog.data.attributes.title,
       description: data.data.metaCatalog.data.attributes.description,
    };
-}
+} */
 
 function Catalog() {
    return (

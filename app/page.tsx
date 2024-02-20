@@ -6,7 +6,7 @@ import Recommended from "./pg/Homepage/Recommended";
 import { fetchGraphqlData } from "./Utilities/FetchData";
 import styles from "./page.module.scss";
 
-export async function generateMetadata() {
+/*export async function generateMetadata() {
    const data = await fetchGraphqlData(
       `
     query {
@@ -25,54 +25,44 @@ export async function generateMetadata() {
       title: data.data.metaHomepage.data.attributes.title,
       description: data.data.metaHomepage.data.attributes.description,
    };
-}
+}*/
 
 export default async function Home() {
    const data = await fetchGraphqlData(`
    query {
-    maintitle {
-      data {
-        attributes {
-          Title
-          Description
-          Image {
-            data {
-              attributes {
-                url
-              }
+    previews {
+      nodes {
+        homepagePreview {
+          title
+          subtitle
+          image {
+            node {
+              sourceUrl
             }
           }
         }
       }
     }
-    recommended(id:2) {
-       data {
-        attributes {
-          recom {
-            data {
-              id
-              attributes {
-                Name
-                Type
-                Reference
-                Image {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
+    recommends {
+      nodes {
+        id
+        productRecommended {
+          name
+          type
+          href
+          image {
+            node {
+              sourceUrl
             }
           }
         }
       }
     }
-    about {
-      data {
-        attributes {
-          Title
-          Description
+    aboutHomepage {
+      nodes {
+        aboutCompany {
+          title
+          subtitle
         }
       }
     }
@@ -80,10 +70,10 @@ export default async function Home() {
    `);
    return (
       <div className={styles.main}>
-         <Preview data={data.data.maintitle} />
+         <Preview data={data.data.previews.nodes[0].homepagePreview} />
          <Equip />
-         <Recommended data={data.data.recommended.data.attributes.recom.data} />
-         <About data={data.data.about.data.attributes} />
+         <Recommended data={data.data.recommends.nodes} />
+         <About data={data.data.aboutHomepage.nodes[0].aboutCompany} />
          <ContactUs />
       </div>
    );

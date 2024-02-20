@@ -13,19 +13,19 @@ function Chars({ el }: Props) {
             <ul className={styles.chars__body}>
                <li className={styles.chars__item}>
                   <div className={styles.chars__item__title}>Серия оборудования</div>
-                  <div className={styles.chars__item__value}>{el.attributes.Name}</div>
+                  <div className={styles.chars__item__value}>{el.productCard.title}</div>
                </li>
                <li className={styles.chars__item}>
                   <div className={styles.chars__item__title}>Тип</div>
-                  <div className={styles.chars__item__value}>{el.attributes.Type}</div>
+                  <div className={styles.chars__item__value}>{el.productCard.type}</div>
                </li>
                <li className={styles.chars__item}>
                   <div className={styles.chars__item__title}>Размер</div>
-                  <div className={styles.chars__item__value}>{el.attributes.Size}</div>
+                  <div className={styles.chars__item__value}>{el.productCard.size}</div>
                </li>
                <li className={styles.chars__item}>
                   <div className={styles.chars__item__title}>HP</div>
-                  <div className={styles.chars__item__value}>{el.attributes.Heat_Output}</div>
+                  <div className={styles.chars__item__value}>{el.productCard.heatOutput}</div>
                </li>
             </ul>
          </div>

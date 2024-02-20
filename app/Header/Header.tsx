@@ -8,33 +8,33 @@ import MobileBlock from "./Mobile/MobileBlock";
 export const list = [
    {
       id: 0,
-      name: "Каталог",
+      name: "Catalog",
       href: "/catalog",
    },
    {
       id: 1,
-      name: "О компании",
+      name: "About us",
       href: "/about",
    },
    {
       id: 2,
-      name: "Вопрос-ответ",
+      name: "FAQ",
       href: "/faq",
    },
 ];
 async function Header() {
    const data = await fetchGraphqlData(`
    query {
-      phone {
-        data {
-          attributes {
-            Header
-          }
-        }
-      }
+      phones {
+         nodes {
+           phoneNumber {
+             number
+           }
+         }
+       }
     }
    `);
-   const decodedPhoneNumber = decodeURI(data.data.phone.data.attributes.Header);
+   const decodedPhoneNumber = decodeURI(data.data.phones.nodes[0].phoneNumber.number);
    return (
       <div className={`container ${styles.header}`}>
          <MobileBlock />
@@ -55,7 +55,7 @@ async function Header() {
             </ul>
          </nav>
          <a href={"tel://" + decodedPhoneNumber} className={styles.header__tel}>
-            <span>{data.data.phone.data.attributes.Header}</span>
+            <span>{data.data.phones.nodes[0].phoneNumber.number}</span>
          </a>
       </div>
    );

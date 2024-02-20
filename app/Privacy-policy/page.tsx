@@ -4,7 +4,7 @@ import TextBlock from "./TextBlock";
 import styles from "./privacy.module.scss";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 
-export async function generateMetadata() {
+/*export async function generateMetadata() {
    const data = await fetchGraphqlData(
       `
       query {
@@ -23,7 +23,7 @@ export async function generateMetadata() {
       title: data.data.metaCredential.data.attributes.title,
       description: data.data.metaCredential.data.attributes.description,
    };
-}
+}*/
 
 type TypeSubtitlesInner = {
    main: string;
@@ -205,7 +205,8 @@ const textBlock: TypeTextBlock = [
 
 function Privacy() {
    return (
-      <section className={styles.privacy}>
+      <div></div>
+      /*<section className={styles.privacy}>
          <div className="container">
             <Breadcrumbs />
             <h2 className={styles.privacy__title}>Политика конфиденциальности</h2>
@@ -214,6 +215,7 @@ function Privacy() {
             })}
          </div>
       </section>
+   */
    );
 }
 export default Privacy;

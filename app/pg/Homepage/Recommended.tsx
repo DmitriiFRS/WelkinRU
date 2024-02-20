@@ -19,10 +19,10 @@ type RecommendedType = {
 };
 type Products = {
    id: number;
-   attributes: {
-      Name: string;
-      Type: string;
-      Reference: string;
+   productRecommended: {
+      name: string;
+      type: string;
+      href: string;
       Image: any;
    };
 };
@@ -32,25 +32,25 @@ async function Recommended({ data }: { data: Array<Products> }) {
          <div className="container">
             <h2 className={styles.recommended__title}>Рекомендуем</h2>
             <ul className={styles.recommended__list}>
-               {data.map((el: RecommendedType) => {
+               {data.map((el: any) => {
                   return (
                      <li key={el.id} className={styles.recommended__item}>
-                        <Link href={`/catalog/${el.attributes.Reference.replace(/\s|\//g, "_")}`}>
+                        <Link href={`/catalog/${el.productRecommended.href.replace(/\s|\//g, "_")}`}>
                            <div className={styles.recommended__cardBody}>
                               <div className={styles.recommended__imgBody}>
                                  <Image
-                                    src={`https://welkingroup.ru${el.attributes.Image.data.attributes.url}`}
-                                    alt={el.attributes.Name}
+                                    src={el.productRecommended.image.node.sourceUrl}
+                                    alt={el.productRecommended.name}
                                     fill
                                     objectFit="contain"
                                  />
                               </div>
                            </div>
                         </Link>
-                        <p className={styles.recommended__model}>{el.attributes.Name}</p>
-                        <p className={styles.recommended__type}>{el.attributes.Type}</p>
+                        <p className={styles.recommended__model}>{el.productRecommended.name}</p>
+                        <p className={styles.recommended__type}>{el.productRecommended.type}</p>
                         <Link
-                           href={`/catalog/${el.attributes.Reference.replace(/\s|\//g, "_")}`}
+                           href={`/catalog/${el.productRecommended.href.replace(/\s|\//g, "_")}`}
                            className={styles.recommended__btn}
                         >
                            <span>Узнать цену</span>
