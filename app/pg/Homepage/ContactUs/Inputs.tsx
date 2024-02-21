@@ -59,23 +59,23 @@ function Inputs() {
       e.preventDefault();
       if (!name || !tel || !question) return;
       try {
-         const res = await fetch("https://welkingroup.ru/graphql", {
+         const res = await fetch("https://welkingroup.ru/wpgraphql", {
             method: "POST",
             body: JSON.stringify({
                query: `
-            mutation {
-               createApplication(data:{name: "${name}", phone: "${tel}", question: "${question}"}) {
-                 data {
-                   id
-                   attributes {
-                     name
-                     phone
-                     question
-                   }
-                 }
-               }
-             }
-            `,
+               mutation {
+                  createReq(input: {title: "gfgf"}) {
+                    clientMutationId
+                    req {
+                      request {
+                        name
+                        phone
+                        question
+                      }
+                    }
+                  }
+                }
+               `,
             }),
             headers: {
                "content-type": "application/json",

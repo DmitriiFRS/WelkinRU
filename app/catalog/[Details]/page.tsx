@@ -7,35 +7,36 @@ import DetailsBody, { DataType } from "./DetailsBody";
 import CatalogPDF from "./CatalogPDF";
 
 type MetadataType = {
-   attributes: {
-      Name: string;
-      Type: string;
-      Reference: string;
+   productCard: {
+      title: string;
+      type: string;
+      href: string;
    };
 };
 
-/*export async function generateMetadata({ params }: { params: { Details: string } }) {
+export async function generateMetadata({ params }: { params: { Details: string } }) {
    const item = await fetchGraphqlData(`
     query {
-      items {
-        data {
-          attributes {
-            Name
-            Type
-            Reference
-          }
-        }
+      products {
+      nodes {
+        productCard {
+          title
+          type
+          href
+          metaDescription
       }
     }
+  }
+}
   `);
-   const searchItem = item.data.items.data.find(
-      (el: MetadataType) => el.attributes.Reference.replace(/\s|\//g, "_") === params.Details
+   const searchItem = item.data.products.nodes.find(
+      (el: MetadataType) => el.productCard.href.replace(/\s|\//g, "_") === params.Details
    );
    return {
-      title: searchItem.attributes.Name,
-      description: searchItem.attributes.Type,
+      title: searchItem.productCard.title,
+      description: searchItem.productCard.metaDescription,
    };
-}*/
+}
 
 async function Details({ params }: { params: { Details: string } }) {
    const data = await fetchGraphqlData(`
