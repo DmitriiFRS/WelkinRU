@@ -50,6 +50,7 @@ async function Details({ params }: { params: { Details: string } }) {
           coolingOutput
           heatOutput
           size
+          hp
           description
           description2
           description3
