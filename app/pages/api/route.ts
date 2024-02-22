@@ -20,9 +20,11 @@ export async function POST(request: NextRequest) {
       const mailOption = {
          from: email,
          to: email,
-         subject: "send email test",
+         subject: "Вопрос от пользователя с сайта welkingroup.ru",
          html: `
-         <h3>Hello from nodemailer</h3>
+         <p>Имя: ${name}</p>
+         <p>Телефон: ${tel}</p>
+         <p>Вопрос: ${question}</p>
       `,
       };
       await transporter.sendMail(mailOption);

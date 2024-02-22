@@ -57,7 +57,11 @@ function Inputs() {
    }
    async function handleSubmit(e: FormEvent) {
       e.preventDefault();
+      console.log("start handle");
       if (!name || !tel || !question) return;
+      setName("");
+      setTel("");
+      setQuestion("");
       const response = await fetch("/pages/api", {
          method: "POST",
          headers: {
@@ -69,9 +73,6 @@ function Inputs() {
             question,
          }),
       });
-      setName("");
-      setTel("");
-      setQuestion("");
    }
    return (
       <form onSubmit={handleSubmit} className={styles.contactUs__inputsBody}>

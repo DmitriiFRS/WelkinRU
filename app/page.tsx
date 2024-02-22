@@ -5,6 +5,7 @@ import Preview from "./pg/Homepage/Preview";
 import Recommended from "./pg/Homepage/Recommended";
 import { fetchGraphqlData } from "./Utilities/FetchData";
 import styles from "./page.module.scss";
+import { headers } from "next/headers";
 
 export async function generateMetadata() {
    const data = await fetchGraphqlData(
