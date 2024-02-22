@@ -4,15 +4,15 @@ import { fetchGraphqlData } from "../Utilities/FetchData";
 import CatalogContainer from "./CatalogContainer";
 import styles from "./catalog.module.scss";
 
-/*export async function generateMetadata() {
+export async function generateMetadata() {
    const data = await fetchGraphqlData(
       `
       query {
-         metaCatalog {
-           data {
-             attributes {
-               title
+         metadata {
+           nodes {
+             title {
                description
+               title
              }
            }
          }
@@ -20,10 +20,10 @@ import styles from "./catalog.module.scss";
     `
    );
    return {
-      title: data.data.metaCatalog.data.attributes.title,
-      description: data.data.metaCatalog.data.attributes.description,
+      title: data.data.metadata.nodes[3].title.title,
+      description: data.data.metadata.nodes[3].title.description,
    };
-} */
+}
 
 function Catalog() {
    return (

@@ -18,7 +18,6 @@ type Props = {
 };
 
 function Answer({ data, answer }: Props) {
-   console.log(answer);
    return (
       <div className={styles.answer__body}>
          <h2 className={styles.answer__title}>Часто задаваемые вопросы</h2>

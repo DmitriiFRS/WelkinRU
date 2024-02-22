@@ -57,33 +57,17 @@ function Inputs() {
    }
    async function handleSubmit(e: FormEvent) {
       e.preventDefault();
-      if (!name || !tel || !question) return;
-      try {
-         const res = await fetch("https://welkingroup.ru/wpgraphql", {
-            method: "POST",
-            body: JSON.stringify({
-               query: `
-               mutation {
-                  createReq(input: {title: "gfgf"}) {
-                    clientMutationId
-                    req {
-                      request {
-                        name
-                        phone
-                        question
-                      }
-                    }
-                  }
-                }
-               `,
-            }),
-            headers: {
-               "content-type": "application/json",
-            },
-         });
-      } catch (err: any) {
-         console.error("error", err);
-      }
+      const response = await fetch("/pages/api", {
+         method: "POST",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify({
+            name,
+            tel,
+            question,
+         }),
+      });
       setName("");
       setTel("");
       setQuestion("");

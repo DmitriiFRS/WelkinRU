@@ -93,7 +93,7 @@ async function Footer() {
                <ul className={styles.footer__cols__list}>
                   <li className={styles.footer__cols__item}>{data.data.phones.nodes[0].phoneNumber.number}</li>
                   <li className={`${styles.footer__cols__item} ${styles.footer__cols__itemMail}`}>
-                     welkinru@gmail.com
+                     sales@welkingroup.ru
                   </li>
                </ul>
             </div>

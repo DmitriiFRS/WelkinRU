@@ -5,15 +5,15 @@ import Title from "./Title";
 import styles from "./about.module.scss";
 import { fetchGraphqlData } from "../Utilities/FetchData";
 
-/*export async function generateMetadata() {
+export async function generateMetadata() {
    const data = await fetchGraphqlData(
       `
       query {
-         metaAbout {
-           data {
-             attributes {
-               title
+         metadata {
+           nodes {
+             title {
                description
+               title
              }
            }
          }
@@ -21,10 +21,10 @@ import { fetchGraphqlData } from "../Utilities/FetchData";
     `
    );
    return {
-      title: data.data.metaAbout.data.attributes.title,
-      description: data.data.metaAbout.data.attributes.description,
+      title: data.data.metadata.nodes[0].title.title,
+      description: data.data.metadata.nodes[0].title.description,
    };
-}*/
+}
 
 function page() {
    return (

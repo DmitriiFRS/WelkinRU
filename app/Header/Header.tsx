@@ -8,17 +8,17 @@ import MobileBlock from "./Mobile/MobileBlock";
 export const list = [
    {
       id: 0,
-      name: "Catalog",
+      name: "Каталог",
       href: "/catalog",
    },
    {
       id: 1,
-      name: "About us",
+      name: "О компании",
       href: "/about",
    },
    {
       id: 2,
-      name: "FAQ",
+      name: "Вопрос-ответ",
       href: "/faq",
    },
 ];

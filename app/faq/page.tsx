@@ -4,15 +4,15 @@ import { fetchGraphqlData } from "../Utilities/FetchData";
 import Questions from "./Questions";
 import styles from "./faq.module.scss";
 
-/*export async function generateMetadata() {
+export async function generateMetadata() {
    const data = await fetchGraphqlData(
       `
       query {
-         metaFaq {
-           data {
-             attributes {
-               title
+         metadata {
+           nodes {
+             title {
                description
+               title
              }
            }
          }
@@ -20,10 +20,10 @@ import styles from "./faq.module.scss";
     `
    );
    return {
-      title: data.data.metaFaq.data.attributes.title,
-      description: data.data.metaFaq.data.attributes.description,
+      title: data.data.metadata.nodes[2].title.title,
+      description: data.data.metadata.nodes[2].title.description,
    };
-}*/
+}
 
 async function Faq() {
    const data = await fetchGraphqlData(`

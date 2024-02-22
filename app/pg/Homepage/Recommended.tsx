@@ -1,22 +1,6 @@
 import Link from "next/link";
 import styles from "./homepage.module.scss";
 import Image from "next/image";
-
-type RecommendedType = {
-   id: number;
-   attributes: {
-      Name: string;
-      Type: string;
-      Reference: string;
-      Image: {
-         data: {
-            attributes: {
-               url: string;
-            };
-         };
-      };
-   };
-};
 type Products = {
    id: number;
    productRecommended: {

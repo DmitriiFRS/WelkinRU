@@ -6,26 +6,26 @@ import Recommended from "./pg/Homepage/Recommended";
 import { fetchGraphqlData } from "./Utilities/FetchData";
 import styles from "./page.module.scss";
 
-/*export async function generateMetadata() {
+export async function generateMetadata() {
    const data = await fetchGraphqlData(
       `
-    query {
-      metaHomepage {
-        data {
-          attributes {
-            title
-            description
-          }
-        }
-      }
-    }
-    `
+     query {
+       metadata {
+         nodes {
+           title {
+             description
+             title
+           }
+         }
+       }
+     }
+   `
    );
    return {
-      title: data.data.metaHomepage.data.attributes.title,
-      description: data.data.metaHomepage.data.attributes.description,
+      title: data.data.metadata.nodes[4].title.title,
+      description: data.data.metadata.nodes[4].title.description,
    };
-}*/
+}
 
 export default async function Home() {
    const data = await fetchGraphqlData(`
