@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
 
       const transporter = nodemailer.createTransport({
          service: "gmail",
-         host: "localhost",
+         host: "welkingroup.ru",
          port: 587,
          auth: {
             user: email,
