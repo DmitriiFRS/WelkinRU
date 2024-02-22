@@ -57,6 +57,7 @@ function Inputs() {
    }
    async function handleSubmit(e: FormEvent) {
       e.preventDefault();
+      if (!name || !tel || !question) return;
       const response = await fetch("/pages/api", {
          method: "POST",
          headers: {

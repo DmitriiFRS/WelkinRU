@@ -18,8 +18,8 @@ export async function POST(request: NextRequest) {
          },
       });
       const mailOption = {
-         from: "dmitriifrs@gmail.com",
-         to: "barrakud3@gmail.com",
+         from: email,
+         to: email,
          subject: "send email test",
          html: `
          <h3>Hello from nodemailer</h3>
