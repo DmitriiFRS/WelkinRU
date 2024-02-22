@@ -9,8 +9,7 @@ export async function POST(request: NextRequest) {
       const { name, tel, question } = await request.json();
 
       const transporter = nodemailer.createTransport({
-         service: "gmail",
-         host: "smtp.gmail.com",
+         host: "smtp.mail.ru",
          port: 465,
          secure: true,
          auth: {
