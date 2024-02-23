@@ -58,8 +58,12 @@ function Inputs({ jwtToken }: { jwtToken: string | undefined }) {
 
    async function handleSubmit(e: FormEvent) {
       e.preventDefault();
+      if (!name || !tel || !question) return;
       const url = "https://welkingroup.ru/wpgraphql";
       const headers = { "Content-type": "application/json", Authorization: `Bearer ${jwtToken}` };
+      setName("");
+      setTel("");
+      setQuestion("");
       const res = await fetch(url, {
          headers,
          method: "POST",
