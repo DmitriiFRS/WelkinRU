@@ -35,7 +35,6 @@ async function Header() {
     }
    `);
    const decodedPhoneNumber = decodeURI(data.data.phones.nodes[0].phoneNumber.number);
-   console.log(data.data);
    return (
       <div className={`container ${styles.header}`}>
          <MobileBlock />
