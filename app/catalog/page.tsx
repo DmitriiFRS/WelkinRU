@@ -26,12 +26,13 @@ export async function generateMetadata() {
 }
 
 function Catalog() {
+   const jwtToken = process.env.WP_JWT_TOKEN;
    return (
       <div className={styles.catalog}>
          <div className="container">
             <Breadcrumbs />
             <h2 className={styles.catalog__title}>Каталог</h2>
-            <CatalogContainer />
+            <CatalogContainer jwtToken={jwtToken} />
          </div>
          <ContactUs />
       </div>

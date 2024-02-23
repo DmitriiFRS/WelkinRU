@@ -5,13 +5,17 @@ import Cards from "./Cards";
 import styles from "./catalog.module.scss";
 import Loader from "./Loader";
 
-function CatalogContainer() {
+function CatalogContainer({ jwtToken }: any) {
    const [data, setData] = useState<any>(null);
 
    useEffect(() => {
+      const headers = {
+         "Content-type": "application/json",
+         Authorization: `Bearer ${jwtToken}`,
+      };
       fetch("https://welkingroup.ru/wpgraphql", {
          method: "POST",
-         headers: { "Content-type": "application/json" },
+         headers: headers,
          body: JSON.stringify({
             query: `
             query {
@@ -37,9 +41,6 @@ function CatalogContainer() {
          .then((res) => res.json())
          .then((res) => setData(res));
    }, []);
-   useEffect(() => {
-      data ? console.log(data.data.products.nodes) : "";
-   }, [data]);
 
    return <div className={styles.catalog__body}>{!data ? <Loader /> : <Cards items={data.data.products.nodes} />}</div>;
 }

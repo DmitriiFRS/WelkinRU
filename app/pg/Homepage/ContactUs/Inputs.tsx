@@ -57,22 +57,27 @@ function Inputs() {
    }
    async function handleSubmit(e: FormEvent) {
       e.preventDefault();
-      console.log("start handle");
-      if (!name || !tel || !question) return;
-      setName("");
-      setTel("");
-      setQuestion("");
-      const response = await fetch("/pages/api", {
+      const url = "https://welkingroup.ru/wpgraphql";
+      const headers = { "Content-type": "application/json", Authorization: `Bearer ${process.env.WP_JWT_TOKEN}` };
+      const res = await fetch(url, {
+         headers,
          method: "POST",
-         headers: {
-            "content-type": "application/json",
-         },
-         body: JSON.stringify({
-            name,
-            tel,
-            question,
-         }),
+         body: JSON.stringify(`
+         mutation {
+            createReq(input: {title: "fff"}) {
+              req {
+                request {
+                  name
+                  phone
+                  question
+                }
+              }
+            }
+          }
+         `),
       });
+      const data = await res.json();
+      return data;
    }
    return (
       <form onSubmit={handleSubmit} className={styles.contactUs__inputsBody}>
