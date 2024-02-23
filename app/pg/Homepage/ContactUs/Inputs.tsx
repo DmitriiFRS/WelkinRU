@@ -5,7 +5,7 @@ import styles from "../homepage.module.scss";
 import { FormEvent, useEffect, useState } from "react";
 import Popup from "./Popup";
 
-function Inputs() {
+function Inputs({ jwtToken }: { jwtToken: string | undefined }) {
    let scrollWidth: null | number = null;
    if (typeof window !== "undefined") {
       scrollWidth = window.innerWidth - document.body.clientWidth;
@@ -55,26 +55,29 @@ function Inputs() {
       setTelIsDirty(false);
       setTextIsDirty(false);
    }
+
    async function handleSubmit(e: FormEvent) {
       e.preventDefault();
       const url = "https://welkingroup.ru/wpgraphql";
-      const headers = { "Content-type": "application/json", Authorization: `Bearer ${process.env.WP_JWT_TOKEN}` };
+      const headers = { "Content-type": "application/json", Authorization: `Bearer ${jwtToken}` };
       const res = await fetch(url, {
          headers,
          method: "POST",
-         body: JSON.stringify(`
-         mutation {
-            createReq(input: {title: "fff"}) {
-              req {
-                request {
-                  name
-                  phone
-                  question
-                }
-              }
-            }
-          }
-         `),
+         body: JSON.stringify({
+            query: `
+            mutation {
+               createReq(input: {title: "Имя: ${name}, Телефон: ${tel}, Вопрос: ${question}"}) {
+                 req {
+                   request {
+                     name
+                     phone
+                     question
+                   }
+                 }
+               }
+             }
+            `,
+         }),
       });
       const data = await res.json();
       return data;

@@ -2,6 +2,7 @@ import styles from "../homepage.module.scss";
 import Inputs from "./Inputs";
 
 function ContactUs() {
+   const jwtToken = process.env.WP_JWT_TOKEN;
    return (
       <div className={styles.contactUs}>
          <div className={`container ${styles.contactUs__container}`}>
@@ -12,7 +13,7 @@ function ContactUs() {
                   гарантируем, что вы получите оптимальное решение, отвечающее вашим потребностям и бюджету.
                </p>
             </div>
-            <Inputs />
+            <Inputs jwtToken={jwtToken} />
          </div>
       </div>
    );

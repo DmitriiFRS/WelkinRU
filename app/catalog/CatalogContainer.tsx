@@ -5,7 +5,7 @@ import Cards from "./Cards";
 import styles from "./catalog.module.scss";
 import Loader from "./Loader";
 
-function CatalogContainer({ jwtToken }: any) {
+function CatalogContainer({ jwtToken }: { jwtToken: string | undefined }) {
    const [data, setData] = useState<any>(null);
 
    useEffect(() => {
