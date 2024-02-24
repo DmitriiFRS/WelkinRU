@@ -43,9 +43,6 @@ const buttons: ButtonsType = [
 ];
 
 function Cards({ items }: { items: Props }) {
-   useEffect(() => {
-      console.log(items);
-   }, []);
    const checkboxes = useSelector((state: RootState) => state.mainReducer.equipCheckboxes);
    const chillerCheckboxes = useSelector((state: RootState) => state.mainReducer.chillerCheckboxes);
    const vrfCheckboxes = useSelector((state: RootState) => state.mainReducer.vrfCheckboxes);

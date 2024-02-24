@@ -17,7 +17,7 @@ type MetadataType = {
 export async function generateMetadata({ params }: { params: { Details: string } }) {
    const item = await fetchGraphqlData(`
     query {
-      products {
+      products(first: 99) {
       nodes {
         productCard {
           title
